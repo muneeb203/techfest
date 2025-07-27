@@ -10,7 +10,7 @@ const TeamPage = () => {
       name: 'Muneeb Qureshi',
       role: 'Founder & CEO',
       category: 'core',
-      image: 'public\\images\\muneeb.jpg',
+      image: 'images\\muneeb.jpg',
       bio: 'Visionary leader with 10+ years in tech industry',
       social: {
         linkedin: '#',
@@ -23,7 +23,7 @@ const TeamPage = () => {
       name: 'Syed Muhammad Asad',
       role: 'CTO',
       category: 'core',
-      image: 'public\\images\\asad.jpg',
+      image: 'images\\asad.jpg',
       bio: 'Tech enthusiast and innovation driver',
       social: {
         linkedin: '#',
@@ -35,7 +35,7 @@ const TeamPage = () => {
       name: 'Roshan Mughal',
       role: 'Head of Events',
       category: 'core',
-      image: 'public\\images\\roshan.jpg',
+      image: 'images\\roshan.jpg',
       bio: 'Event management expert with creative flair',
       social: {
         linkedin: '#',
