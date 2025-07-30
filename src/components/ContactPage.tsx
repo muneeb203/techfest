@@ -40,14 +40,14 @@ const ContactPage = () => {
     {
       icon: Mail,
       label: 'Email Us',
-      value: 'info@techfestpakistan.com',
+      value: 'techfestpakistan@gmail.com',
       description: 'We typically respond within 24 hours',
       color: 'from-blue-500 to-cyan-500'
     },
     {
       icon: Phone,
       label: 'Call Us',
-      value: '+92 300 1234567',
+      value: '+92 330 0078040',
       description: 'Available Mon-Fri, 9 AM - 6 PM',
       color: 'from-green-500 to-teal-500'
     },

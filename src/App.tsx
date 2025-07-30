@@ -71,9 +71,7 @@ const App = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="flex items-center space-x-3">
-              <div className={`w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-r from-blue-500 to-teal-500`}>
-                <span className="text-white font-bold text-lg">T</span>
-              </div>
+              <img src="/images/logo_bgremove.png" alt="TechFest Logo" className="w-14 h-14 object-contain" />
               <div>
                 <h1 className={`text-xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent`}>
                   TechFest

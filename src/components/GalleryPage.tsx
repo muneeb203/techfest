@@ -9,8 +9,8 @@ const GalleryPage = () => {
   const galleryFolders = [
     {
       id: 1,
-      title: 'TechFest\'24 Islamabad',
-      subtitle: 'November 2024',
+      title: 'TechFest\'25 Islamabad',
+      subtitle: 'February 2025',
       coverImage: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
       imageCount: 24,
       description: 'Our inaugural event in the capital city with amazing workshops and networking',

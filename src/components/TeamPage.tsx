@@ -10,12 +10,11 @@ const TeamPage = () => {
       name: 'Muneeb Qureshi',
       role: 'Founder & CEO',
       category: 'core',
-      image: 'images\\muneeb.jpg',
+      image: 'images/muneeb.jpg',
       bio: 'Visionary leader with 10+ years in tech industry',
       social: {
-        linkedin: '#',
-        github: '#',
-        twitter: '#'
+        linkedin: 'https://www.linkedin.com/in/muneebqureshi2003/',
+        instagram: 'https://www.instagram.com/muneeb',
       }
     },
     {
@@ -23,11 +22,11 @@ const TeamPage = () => {
       name: 'Syed Muhammad Asad',
       role: 'CTO',
       category: 'core',
-      image: 'images\\asad.jpg',
+      image: 'images/asad.jpg',
       bio: 'Tech enthusiast and innovation driver',
       social: {
         linkedin: '#',
-        github: '#'
+        instagram: 'https://www.instagram.com/sm.asad._56/'
       }
     },
     {
@@ -35,7 +34,31 @@ const TeamPage = () => {
       name: 'Roshan Mughal',
       role: 'Head of Events',
       category: 'core',
-      image: 'images\\roshan.jpg',
+      image: 'images/roshan.jpg',
+      bio: 'Event management expert with creative flair',
+      social: {
+        linkedin: '#',
+        instagram: 'https://www.instagram.com/roshaaan.m/'
+      }
+    },
+    {
+      id: 4,
+      name: 'Burhan',
+      role: 'Chapter Lead-Peshawar',
+      category: 'chapter-lead',
+      image: '',
+      bio: 'Event management expert with creative flair',
+      social: {
+        linkedin: '#',
+        instagram: '#'
+      }
+    },
+    {
+      id: 5,
+      name: 'Fawad Raza Kazmi',
+      role: 'Logisstics Manager',
+      category: 'core',
+      image: '',
       bio: 'Event management expert with creative flair',
       social: {
         linkedin: '#',
@@ -47,7 +70,7 @@ const TeamPage = () => {
   const filters = [
     { id: 'all', label: 'All Team', count: teamMembers.length },
     { id: 'core', label: 'Core Team', count: teamMembers.filter(m => m.category === 'core').length },
-    { id: 'media', label: 'Media Team', count: teamMembers.filter(m => m.category === 'media').length },
+    { id: 'chapter-lead', label: 'Chapter Lead', count: teamMembers.filter(m => m.category === 'chapter-lead').length },
     { id: 'volunteer', label: 'Volunteers', count: teamMembers.filter(m => m.category === 'volunteer').length }
   ];
 
