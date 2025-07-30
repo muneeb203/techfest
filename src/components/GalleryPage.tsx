@@ -11,63 +11,26 @@ const GalleryPage = () => {
       id: 1,
       title: 'TechFest\'25 Islamabad',
       subtitle: 'February 2025',
-      coverImage: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
-      imageCount: 24,
+      coverImage: 'images/TF_ISL25/Techfest 3.jpg',
+      imageCount: 5,
       description: 'Our inaugural event in the capital city with amazing workshops and networking',
       images: [
-        'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184402/pexels-photo-3184402.jpeg?auto=compress&cs=tinysrgb&w=800'
+        'images/TF_ISL25/Techfest 1.jpg',
+        'images/TF_ISL25/Techfest 2.jpg',
+        'images/TF_ISL25/Techfest 3.jpg',
+        'images/TF_ISL25/Techfest 4.jpg',
+        'images/TF_ISL25/Techfest 5.jpg'
       ]
     },
     {
       id: 2,
-      title: 'TechFest\'24 Karachi Workshop',
-      subtitle: 'September 2024',
-      coverImage: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'TechFest\'25 Islamabad Behind the Scenes',
+      subtitle: 'February 2025',
+      coverImage: 'images/TF_ISL25/Techfest 3.jpg',
       imageCount: 18,
       description: 'Hands-on workshops and coding sessions in Karachi',
       images: [
-        'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184402/pexels-photo-3184402.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184393/pexels-photo-3184393.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800'
-      ]
-    },
-    {
-      id: 3,
-      title: 'TechFest\'24 Lahore Meetup',
-      subtitle: 'August 2024',
-      coverImage: 'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800',
-      imageCount: 15,
-      description: 'Community meetup and tech talks in Lahore',
-      images: [
-        'https://images.pexels.com/photos/2608517/pexels-photo-2608517.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=800'
-      ]
-    },
-    {
-      id: 4,
-      title: 'Behind the Scenes',
-      subtitle: 'Team Moments',
-      coverImage: 'https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=800',
-      imageCount: 12,
-      description: 'Candid moments and behind-the-scenes from our events',
-      images: [
-        'https://images.pexels.com/photos/3184398/pexels-photo-3184398.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184393/pexels-photo-3184393.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184295/pexels-photo-3184295.jpeg?auto=compress&cs=tinysrgb&w=800',
-        'https://images.pexels.com/photos/3184293/pexels-photo-3184293.jpeg?auto=compress&cs=tinysrgb&w=800'
+        'images/TF_ISL25/Techfest 1.jpg'
       ]
     }
   ];
