@@ -365,12 +365,13 @@ const PartnersPage = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-teal-600/20 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative bg-slate-800/50 backdrop-blur-md border border-blue-500/30 rounded-2xl overflow-hidden hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105">
                 {/* Partner Logo */}
-                <div className="relative h-32 overflow-hidden bg-gradient-to-br from-slate-700/50 to-slate-800/50 flex items-center justify-center p-6">
+                <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-slate-700/50 to-slate-800/50 flex items-center justify-center p-6">
                   <img 
-                    src={partner.logo} 
-                    alt={partner.name}
-                    className="w-16 h-16 object-contain rounded-lg filter brightness-90 group-hover:brightness-100 transition-all duration-300"
-                  />
+                  src={partner.logo} 
+                  alt={partner.name}
+                  className="max-w-full max-h-full w-full h-full object-contain rounded-lg filter brightness-90 group-hover:brightness-100 transition-all duration-300"
+                />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent"></div>
                 </div>
 

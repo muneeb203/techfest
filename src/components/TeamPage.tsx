@@ -43,10 +43,10 @@ const TeamPage = () => {
     },
     {
       id: 4,
-      name: 'Burhan',
-      role: 'Chapter Lead-Peshawar',
-      category: 'chapter-lead',
-      image: '',
+      name: 'Syed Fawad Raza Kazmi',
+      role: 'Logistics Manager',
+      category: 'core',
+      image: 'images/fawad.jpg',
       bio: 'Event management expert with creative flair',
       social: {
         linkedin: '#',
@@ -55,10 +55,22 @@ const TeamPage = () => {
     },
     {
       id: 5,
-      name: 'Fawad Raza Kazmi',
-      role: 'Logisstics Manager',
-      category: 'core',
-      image: '',
+      name: 'Sardar Burhan',
+      role: 'Lead Peshawar Chapter',
+      category: 'chapter-lead',
+      image: 'images/burhan.jpg',
+      bio: 'Event management expert with creative flair',
+      social: {
+        linkedin: '#',
+        instagram: '#'
+      }
+    },
+    {      
+      id: 6,
+      name: 'Mohib Qureshi',
+      role: 'Lead Islamabad Chapter',
+      category: 'chapter-lead',  
+      image: 'images/mohib.jpg',
       bio: 'Event management expert with creative flair',
       social: {
         linkedin: '#',
