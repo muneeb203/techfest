@@ -50,21 +50,21 @@ const ContactPage = () => {
       value: '+92 330 0078040',
       description: 'Available Mon-Fri, 9 AM - 6 PM',
       color: 'from-green-500 to-teal-500'
-    },
-    {
-      icon: MapPin,
-      label: 'Visit Us',
-      value: 'Islamabad, Pakistan',
-      description: 'Our headquarters and main office',
-      color: 'from-purple-500 to-pink-500'
-    },
-    {
-      icon: Globe,
-      label: 'Website',
-      value: 'techfestpakistan.com',
-      description: 'Official website and resources',
-      color: 'from-orange-500 to-red-500'
     }
+    // {
+    //   icon: MapPin,
+    //   label: 'Visit Us',
+    //   value: 'Islamabad, Pakistan',
+    //   description: 'Our headquarters and main office',
+    //   color: 'from-purple-500 to-pink-500'
+    // },
+    // {
+    //   icon: Globe,
+    //   label: 'Website',
+    //   value: 'techfestpakistan.com',
+    //   description: 'Official website and resources',
+    //   color: 'from-orange-500 to-red-500'
+    // }
   ];
 
   const inquiryTypes = [
@@ -78,9 +78,9 @@ const ContactPage = () => {
   ];
 
   const officeHours = [
-    { day: 'Monday - Friday', hours: '9:00 AM - 6:00 PM', status: 'open' },
-    { day: 'Saturday', hours: '10:00 AM - 4:00 PM', status: 'open' },
-    { day: 'Sunday', hours: 'Closed', status: 'closed' }
+    // { day: 'Monday - Friday', hours: '9:00 AM - 6:00 PM', status: 'open' },
+    // { day: 'Saturday', hours: '10:00 AM - 4:00 PM', status: 'open' },
+    // { day: 'Sunday', hours: 'Closed', status: 'closed' }
   ];
 
   return (
@@ -233,6 +233,7 @@ const ContactPage = () => {
             </div>
 
             {/* Office Hours */}
+            {/* 
             <div className="bg-slate-800/50 backdrop-blur-md border border-blue-500/30 rounded-2xl p-6">
               <h3 className="text-xl font-bold text-white mb-6 flex items-center space-x-2">
                 <Clock className="w-5 h-5 text-blue-400" />
@@ -254,6 +255,8 @@ const ContactPage = () => {
                 ))}
               </div>
             </div>
+            */}
+             
 
             {/* Social Media */}
             <div className="bg-slate-800/50 backdrop-blur-md border border-blue-500/30 rounded-2xl p-6">
@@ -262,7 +265,7 @@ const ContactPage = () => {
                 {[
                   { platform: 'Instagram', handle: '@techfestpakistan', icon: Instagram, color: 'from-pink-500 to-purple-500', url: '#' },
                   { platform: 'LinkedIn', handle: 'TechFest Pakistan', icon: Linkedin, color: 'from-blue-600 to-blue-700', url: '#' },
-                  { platform: 'GitHub', handle: 'techfest-pk', icon: Github, color: 'from-gray-700 to-gray-800', url: '#' }
+                  
                 ].map((social, index) => (
                   <a
                     key={index}

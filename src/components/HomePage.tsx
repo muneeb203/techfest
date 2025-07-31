@@ -41,18 +41,6 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
       date: 'March 15-17, 2025',
       location: 'University of Peshawar',
       status: 'Registration Open'
-    },
-    {
-      title: 'TechFest\'25 Karachi Chapter',
-      date: 'April 20-22, 2025',
-      location: 'NED University',
-      status: 'Coming Soon'
-    },
-    {
-      title: 'TechFest\'25 Lahore Chapter',
-      date: 'May 10-12, 2025',
-      location: 'LUMS University',
-      status: 'Coming Soon'
     }
   ];
 
