@@ -10,57 +10,31 @@ const EventsPage = () => {
     {
       id: 1,
       title: 'TechFest\'25 Peshawar Chapter',
-      date: 'March 15-17, 2025',
+      date: 'TBD',
       location: 'University of Peshawar',
       time: '9:00 AM - 6:00 PM',
-      participants: '2000+',
-      status: 'registration-open',
+      participants: '',
+      status: 'coming-soon',
       city: 'peshawar',
       description: 'Join us for three days of innovation, workshops, and networking in the heart of Peshawar.',
       highlights: ['AI/ML Workshops', 'Startup Pitch Competition', 'Tech Talks', 'Networking Sessions'],
-      speakers: ['Dr. Ahmed Khan', 'Sarah Ali', 'Muhammad Hassan'],
-      image: 'https://images.pexels.com/photos/1181675/pexels-photo-1181675.jpeg?auto=compress&cs=tinysrgb&w=800'
+      speakers: ['Khizar Bakhtiyar'],
+      image: ''
     },
-    {
-      id: 2,
-      title: 'TechFest\'25 Karachi Chapter',
-      date: 'April 20-22, 2025',
-      location: 'NED University',
-      time: '9:00 AM - 6:00 PM',
-      participants: '3000+',
-      status: 'coming-soon',
-      city: 'karachi',
-      description: 'The biggest tech event in Karachi featuring cutting-edge technology demonstrations.',
-      highlights: ['Blockchain Workshop', 'Cybersecurity Talks', 'IoT Demonstrations', 'Career Fair'],
-      speakers: ['Prof. Fatima Sheikh', 'Ali Raza', 'Zara Khan'],
-      image: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
-    {
-      id: 3,
-      title: 'TechFest\'25 Lahore Chapter',
-      date: 'May 10-12, 2025',
-      location: 'LUMS University',
-      time: '9:00 AM - 6:00 PM',
-      participants: '2500+',
-      status: 'coming-soon',
-      city: 'lahore',
-      description: 'Experience the cultural tech hub of Pakistan with innovative workshops and competitions.',
-      highlights: ['Mobile App Development', 'Game Development', 'UI/UX Design', 'Tech Entrepreneurship'],
-      speakers: ['Dr. Usman Ali', 'Ayesha Ahmad', 'Bilal Sheikh'],
-      image: 'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=800'
-    },
+
+
     {
       id: 4,
       title: 'TechFest\'24 Islamabad (Past)',
-      date: 'November 15-17, 2024',
-      location: 'NUST University',
-      time: '9:00 AM - 6:00 PM',
+      date: 'February 20-21, 2025',
+      location: 'Air University',
+      time: '10:00 AM - 4:00 PM',
       participants: '1800+',
       status: 'completed',
       city: 'islamabad',
       description: 'Our successful inaugural event in the capital city with amazing participation.',
       highlights: ['Cloud Computing', 'Data Science', 'DevOps', 'Open Source'],
-      speakers: ['Dr. Maria Khan', 'Hassan Ali', 'Sana Ahmed'],
+      speakers: ['Dr. Umar Baig'],
       image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800'
     }
   ];
