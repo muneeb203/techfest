@@ -215,10 +215,10 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
         <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { number: '10K+', label: 'Participants' },
-              { number: '50+', label: 'Speakers' },
-              { number: '25+', label: 'Workshops' },
-              { number: '8', label: 'Cities' }
+              { number: '2K+', label: 'Participants' },
+              { number: '10+', label: 'Speakers' },
+              { number: '5+', label: 'Workshops' },
+              { number: '2', label: 'Cities' }
             ].map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent mb-2">

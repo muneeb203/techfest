@@ -154,9 +154,7 @@ const App = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
-                <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-blue-500 to-teal-500 flex items-center justify-center">
-                  <span className="text-white font-bold">T</span>
-                </div>
+                <img src="/images/logo_bgremove.png" alt="TechFest Logo" className="w-16  h-16 object-contain rounded-lg" />
                 <span className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>TechFest Pakistan</span>
               </div>
               <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
@@ -184,11 +182,11 @@ const App = () => {
               <div className="space-y-3">
                 <div className={`flex items-center space-x-3 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                   <Mail className="w-4 h-4" />
-                  <span>info@techfestpakistan.com</span>
+                  <span>info@techfestpk.com</span>
                 </div>
                 <div className={`flex items-center space-x-3 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                   <Phone className="w-4 h-4" />
-                  <span>+92 300 1234567</span>
+                  <span>+92 330 0078040</span>
                 </div>
                 <div className={`flex items-center space-x-3 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
                   <MapPin className="w-4 h-4" />
@@ -201,9 +199,9 @@ const App = () => {
               <h3 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Follow Us</h3>
               <div className="flex space-x-3">
                 {[
-                  { icon: Instagram, href: '#', color: 'from-pink-500 to-purple-500' },
-                  { icon: Linkedin, href: '#', color: 'from-blue-600 to-blue-700' },
-                  { icon: Github, href: '#', color: 'from-gray-700 to-gray-800' }
+                  { icon: Instagram, href: 'https://www.instagram.com/techfest.official/', color: 'from-pink-500 to-purple-500' },
+                  { icon: Linkedin, href: 'https://www.linkedin.com/company/techfest-25/ ', color: 'from-blue-600 to-blue-700' },
+                  // { icon: Github, href: '#', color: 'from-gray-700 to-gray-800' }
                 ].map((social, index) => (
                   <a
                     key={index}
@@ -218,7 +216,8 @@ const App = () => {
           </div>
 
           <div className={`mt-8 pt-8 border-t text-center text-sm ${isDarkMode ? 'border-blue-800/50 text-gray-400' : 'border-blue-200/50 text-gray-600'}`}>
-            <p>&copy; 2024 TechFest Pakistan. All rights reserved.</p>
+            <p>&copy; 2025 TechFest Pakistan. All rights reserved.</p>
+            <p>Developed by <a href="https://convosol.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">ConvoSol</a>.</p>
           </div>
         </div>
       </footer>

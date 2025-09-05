@@ -100,7 +100,7 @@ const ContactPage = () => {
     {
       icon: Mail,
       label: 'Email Us',
-      value: 'techfestpakistan@gmail.com',
+      value: 'info@techfestpk.com',
       description: 'We typically respond within 24 hours',
       color: 'from-blue-500 to-cyan-500'
     },
@@ -329,8 +329,8 @@ const ContactPage = () => {
               <h3 className="text-xl font-bold text-white mb-6">Follow Us</h3>
               <div className="space-y-4">
                 {[
-                  { platform: 'Instagram', handle: '@techfestpakistan', icon: Instagram, color: 'from-pink-500 to-purple-500', url: '#' },
-                  { platform: 'LinkedIn', handle: 'TechFest Pakistan', icon: Linkedin, color: 'from-blue-600 to-blue-700', url: '#' },
+                  { platform: 'Instagram', handle: '@techfest.official', icon: Instagram, color: 'from-pink-500 to-purple-500', url: 'https://www.instagram.com/techfest.official/' },
+                  { platform: 'LinkedIn', handle: 'TechFest Pakistan', icon: Linkedin, color: 'from-blue-600 to-blue-700', url: 'https://www.linkedin.com/company/techfest-25/' },
                   
                 ].map((social, index) => (
                   <a
