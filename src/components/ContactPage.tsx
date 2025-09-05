@@ -11,29 +11,89 @@ const ContactPage = () => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [subscribeEmail, setSubscribeEmail] = useState('');
+  const [subscribeLoading, setSubscribeLoading] = useState(false);
+  const [subscribeSuccess, setSubscribeSuccess] = useState(false);
+  const [subscribeError, setSubscribeError] = useState<string | null>(null);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsLoading(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', subject: '', message: '', type: 'general' });
-    }, 3000);
+    try {
+      const response = await fetch('https://formspree.io/f/xvgbvlrz', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '', type: 'general' });
+      } else {
+        const data = await response.json();
+        if (data.errors) {
+          setError(data.errors.map((error: any) => error.message).join(', '));
+        } else {
+          setError('Failed to send message. Please try again later.');
+        }
+      }
+    } catch (err: unknown) {
+      setError('Failed to send message. Please check your internet connection and try again.');
+    } finally {
+      setIsLoading(false);
+      if (isSubmitted) {
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setError(null);
+        }, 3000);
+      }
+    }
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleSubscribe = async () => {
+    if (!subscribeEmail) {
+      setSubscribeError('Email is required');
+      return;
+    }
+    setSubscribeLoading(true);
+    setSubscribeError(null);
+    try {
+      console.log('Sending subscribe request with email:', subscribeEmail);
+      const response = await fetch('https://script.google.com/macros/s/AKfycbyzDQIhZK0WrOuiVGSlCRQPvWKVutVIZkXwYkQ6R73xIYQIKDt6uGw9uVkWIR5Ps5R2AQ/exec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email: subscribeEmail })
+      });
+      console.log('Response status:', response.status);
+      const data = await response.json();
+      console.log('Response data:', data);
+      if (data.result === 'success') {
+        setSubscribeSuccess(true);
+        setSubscribeEmail('');
+        setTimeout(() => setSubscribeSuccess(false), 3000);
+      } else {
+        setSubscribeError(data.message || 'Failed to subscribe');
+      }
+    } catch (err) {
+      console.error('Subscribe error:', err);
+      setSubscribeError('Failed to subscribe. Please try again.');
+    } finally {
+      setSubscribeLoading(false);
+    }
   };
 
   const contactInfo = [
@@ -175,6 +235,12 @@ const ContactPage = () => {
                     />
                   </div>
 
+                  {error && (
+                    <div className="text-red-500 text-sm font-medium">
+                      {error}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
                     disabled={isLoading}
@@ -290,16 +356,36 @@ const ContactPage = () => {
               <p className="text-gray-400 mb-6 text-sm">
                 Subscribe to our newsletter for the latest updates on events, workshops, and tech news.
               </p>
-              <div className="flex space-x-2">
-                <input
-                  type="email"
-                  placeholder="your.email@example.com"
-                  className="flex-1 px-3 py-2 bg-slate-700/50 border border-blue-500/30 rounded-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50"
-                />
-                <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 text-sm">
-                  Subscribe
-                </button>
-              </div>
+              {subscribeSuccess ? (
+                <div className="text-center py-4">
+                  <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                    <CheckCircle className="w-4 h-4 text-green-400" />
+                  </div>
+                  <p className="text-green-400 text-sm font-medium">Subscribed successfully!</p>
+                </div>
+              ) : (
+                <>
+                  <div className="flex space-x-2 mb-4">
+                    <input
+                      type="email"
+                      value={subscribeEmail}
+                      onChange={(e) => setSubscribeEmail(e.target.value)}
+                      placeholder="your.email@example.com"
+                      className="flex-1 px-3 py-2 bg-slate-700/50 border border-blue-500/30 rounded-lg text-white placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50"
+                    />
+                    <button
+                      onClick={handleSubscribe}
+                      disabled={subscribeLoading}
+                      className="px-4 py-2 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {subscribeLoading ? '...' : 'Subscribe'}
+                    </button>
+                  </div>
+                  {subscribeError && (
+                    <p className="text-red-400 text-sm">{subscribeError}</p>
+                  )}
+                </>
+              )}
             </div>
           </div>
         </div>

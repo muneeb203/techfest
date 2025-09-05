@@ -38,7 +38,7 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
   const upcomingEvents = [
     {
       title: 'TechFest\'25 Peshawar Chapter',
-      date: 'March 15-17, 2025',
+      date: 'October 11, 2025',
       location: 'University of Peshawar',
       status: 'Registration Open'
     }
@@ -76,6 +76,11 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
             Join Pakistan's premier technology festival bringing together developers, innovators, and tech enthusiasts from across the nation.
           </p>
 
+          {/* Next Event Heading */}
+          <h2 className="text-2xl md:text-4xl font-bold text-white text-center mb-8">
+            Next Event: TechFest'25 Peshawar Chapter
+          </h2>
+
           {/* Countdown Timer */}
           <div className="flex justify-center space-x-4 md:space-x-8 my-12">
             {Object.entries(timeLeft).map(([unit, value]) => (
@@ -90,8 +95,8 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
-            <button 
-              onClick={() => setCurrentPage('events')}
+            <button
+              onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSfgh7v9gxfclcWDjEKySz6kO7Ir6JPcOFYKexttLVKzo16u-Q/viewform', '_blank')}
               className="group px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 flex items-center space-x-2"
             >
               <span>Register Now</span>
@@ -182,7 +187,10 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
                     </div>
                   </div>
 
-                  <button className="w-full py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+                  <button
+                    onClick={() => event.status === 'Registration Open' ? window.open('https://docs.google.com/forms/d/e/1FAIpQLSfgh7v9gxfclcWDjEKySz6kO7Ir6JPcOFYKexttLVKzo16u-Q/viewform', '_blank') : null}
+                    className="w-full py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
+                  >
                     {event.status === 'Registration Open' ? 'Register Now' : 'Get Notified'}
                   </button>
                 </div>

@@ -3,18 +3,17 @@ import { Calendar, MapPin, Users, Clock, Download, ExternalLink, Star, Filter } 
 
 const EventsPage = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
-  const [showRegistrationForm, setShowRegistrationForm] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState(null);
+  // Removed unused state for modal
 
   const events = [
     {
       id: 1,
       title: 'TechFest\'25 Peshawar Chapter',
-      date: 'TBD',
+      date: '11th October 2025',
       location: 'University of Peshawar',
       time: '9:00 AM - 6:00 PM',
       participants: '',
-      status: 'coming-soon',
+      status: 'registration-open',
       city: 'peshawar',
       description: 'Join us for three days of innovation, workshops, and networking in the heart of Peshawar.',
       highlights: ['AI/ML Workshops', 'Startup Pitch Competition', 'Tech Talks', 'Networking Sessions'],
@@ -56,9 +55,9 @@ const EventsPage = () => {
     return event.city === selectedFilter;
   });
 
-  const handleRegistration = (event) => {
-    setSelectedEvent(event);
-    setShowRegistrationForm(true);
+  const handleRegistration = (event: any) => {
+    // Open Google Form in new tab for registration
+    window.open('https://docs.google.com/forms/d/e/1FAIpQLSfgh7v9gxfclcWDjEKySz6kO7Ir6JPcOFYKexttLVKzo16u-Q/viewform', '_blank');
   };
 
   return (
@@ -204,101 +203,7 @@ const EventsPage = () => {
           ))}
         </div>
 
-        {/* Registration Form Modal */}
-        {showRegistrationForm && selectedEvent && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-            <div className="bg-slate-800 rounded-2xl p-8 max-w-md w-full max-h-[90vh] overflow-y-auto border border-blue-500/30">
-              <div className="flex items-center justify-between mb-6">
-                <h3 className="text-2xl font-bold text-white">Event Registration</h3>
-                <button 
-                  onClick={() => setShowRegistrationForm(false)}
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  ×
-                </button>
-              </div>
 
-              <div className="mb-6">
-                <h4 className="text-lg font-semibold text-white mb-2">{selectedEvent.title}</h4>
-                <p className="text-gray-400 text-sm">{selectedEvent.date} • {selectedEvent.location}</p>
-              </div>
-
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Full Name *</label>
-                  <input 
-                    type="text" 
-                    required
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-blue-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent"
-                    placeholder="Enter your full name"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Email Address *</label>
-                  <input 
-                    type="email" 
-                    required
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-blue-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent"
-                    placeholder="Enter your email"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Phone Number *</label>
-                  <input 
-                    type="tel" 
-                    required
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-blue-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent"
-                    placeholder="+92 300 1234567"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Institution/Organization *</label>
-                  <input 
-                    type="text" 
-                    required
-                    className="w-full px-4 py-3 bg-slate-700/50 border border-blue-500/30 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent"
-                    placeholder="University/Company name"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Role/Position *</label>
-                  <select className="w-full px-4 py-3 bg-slate-700/50 border border-blue-500/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-transparent">
-                    <option value="">Select your role</option>
-                    <option value="student">Student</option>
-                    <option value="developer">Developer</option>
-                    <option value="designer">Designer</option>
-                    <option value="entrepreneur">Entrepreneur</option>
-                    <option value="researcher">Researcher</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-white mb-2">Areas of Interest</label>
-                  <div className="space-y-2">
-                    {['AI/ML', 'Web Development', 'Mobile Apps', 'Blockchain', 'Cybersecurity', 'IoT'].map((interest) => (
-                      <label key={interest} className="flex items-center space-x-2">
-                        <input type="checkbox" className="rounded border-blue-500/30 bg-slate-700/50 text-blue-500 focus:ring-blue-500/50" />
-                        <span className="text-gray-300 text-sm">{interest}</span>
-                      </label>
-                    ))}
-                  </div>
-                </div>
-
-                <button 
-                  type="submit"
-                  className="w-full py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
-                >
-                  Complete Registration
-                </button>
-              </form>
-            </div>
-          </div>
-        )}
 
         {/* No Events Found */}
         {filteredEvents.length === 0 && (
