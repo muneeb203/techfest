@@ -350,8 +350,8 @@ const ContactPage = () => {
               </div>
             </div>
 
-            {/* Newsletter Signup */}
-            <div className="bg-gradient-to-r from-blue-600/20 to-teal-600/20 backdrop-blur-md border border-blue-500/30 rounded-2xl p-6">
+            {/* Newsletter Subscription */}
+            {/* <div className="bg-gradient-to-r from-blue-600/20 to-teal-600/20 backdrop-blur-md border border-blue-500/30 rounded-2xl p-6">
               <h3 className="text-xl font-bold text-white mb-4">Stay Updated</h3>
               <p className="text-gray-400 mb-6 text-sm">
                 Subscribe to our newsletter for the latest updates on events, workshops, and tech news.
@@ -386,12 +386,12 @@ const ContactPage = () => {
                   )}
                 </>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* FAQ Section */}
-        <div className="mt-20">
+        {/* <div className="mt-20">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-white mb-4">Frequently Asked Questions</h2>
             <p className="text-gray-400">Quick answers to common questions</p>
@@ -401,7 +401,7 @@ const ContactPage = () => {
             {[
               {
                 question: 'How can I register for TechFest events?',
-                answer: 'You can register for our events through the Events page on our website. Registration is typically free, but some workshops may have limited seats.'
+                answer: 'You can register for our events through the Events page on our website. We have limited seats, so be sure to sign up early!'
               },
               {
                 question: 'Can I volunteer at TechFest?',
@@ -422,7 +422,7 @@ const ContactPage = () => {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

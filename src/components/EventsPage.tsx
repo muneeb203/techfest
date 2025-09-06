@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, MapPin, Users, Clock, Download, ExternalLink, Star, Filter } from 'lucide-react';
 
-const EventsPage = () => {
+const EventsPage = ({ setCurrentPage }: { setCurrentPage: (page: string) => void }) => {
   const [selectedFilter, setSelectedFilter] = useState('all');
   // Removed unused state for modal
 
@@ -18,7 +18,7 @@ const EventsPage = () => {
       description: 'Join us for three days of innovation, workshops, and networking in the heart of Peshawar.',
       highlights: ['AI/ML Workshops', 'Startup Pitch Competition', 'Tech Talks', 'Networking Sessions'],
       speakers: ['Khizar Bakhtiyar'],
-      image: ''
+      image: 'images\\Peshawar_bcgrnd.png'
     },
 
 
@@ -34,7 +34,7 @@ const EventsPage = () => {
       description: 'Our successful inaugural event in the capital city with amazing participation.',
       highlights: ['Cloud Computing', 'Data Science', 'DevOps', 'Open Source'],
       speakers: ['Dr. Umar Baig'],
-      image: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=800'
+      image: 'images\\Islamabad_cover.webp'
     }
   ];
 
@@ -192,8 +192,10 @@ const EventsPage = () => {
                       </button>
                     )}
 
-                    <button className="px-6 py-3 border border-blue-500/50 text-blue-400 rounded-lg font-medium hover:bg-blue-500/10 backdrop-blur-sm transition-all duration-300 flex items-center justify-center space-x-2">
-                      <Download className="w-4 h-4" />
+                    <button
+                      onClick={() => setCurrentPage('agenda')}
+                      className="px-6 py-3 border border-blue-500/50 text-blue-400 rounded-lg font-medium hover:bg-blue-500/10 backdrop-blur-sm transition-all duration-300 flex items-center justify-center"
+                    >
                       <span>Agenda</span>
                     </button>
                   </div>

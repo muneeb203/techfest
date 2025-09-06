@@ -103,7 +103,7 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
             </button>
             
             <button 
-              onClick={() => setCurrentPage('events')}
+              onClick={() => setCurrentPage('agenda')}
               className="px-8 py-4 border-2 border-blue-500/50 text-blue-400 rounded-full font-semibold text-lg hover:bg-blue-500/10 backdrop-blur-sm transition-all duration-300 transform hover:scale-105"
             >
               Explore Agenda

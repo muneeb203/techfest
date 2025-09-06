@@ -6,6 +6,7 @@ import TeamPage from './components/TeamPage';
 import GalleryPage from './components/GalleryPage';
 import PartnersPage from './components/PartnersPage';
 import ContactPage from './components/ContactPage';
+import Agenda from './components/Agenda';
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
@@ -41,6 +42,7 @@ const App = () => {
   const navigationItems = [
     { id: 'home', label: 'Home', icon: null },
     { id: 'events', label: 'Events', icon: Calendar },
+   // { id: 'agenda', label: 'Agenda', icon: Calendar },
     { id: 'team', label: 'Team', icon: Users },
     { id: 'gallery', label: 'Gallery', icon: Image },
     { id: 'partners', label: 'Partners', icon: Award },
@@ -54,7 +56,8 @@ const App = () => {
   const renderPage = () => {
     switch (currentPage) {
       case 'home': return <HomePage timeLeft={timeLeft} setCurrentPage={setCurrentPage} />;
-      case 'events': return <EventsPage />;
+      case 'events': return <EventsPage setCurrentPage={setCurrentPage} />;
+      case 'agenda': return <Agenda />;
       case 'team': return <TeamPage />;
       case 'gallery': return <GalleryPage />;
       case 'partners': return <PartnersPage />;
