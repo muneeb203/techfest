@@ -5,3 +5,100 @@
 body {
   @apply bg-background text-foreground;
 }
+
+/* Custom animations for torch blinking and logo fade-in */
+
+@keyframes blinkTorch {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes flickerFlame {
+  0%, 100% { filter: brightness(1) drop-shadow(0 0 2px #ff9f00); }
+  50% { filter: brightness(1.3) drop-shadow(0 0 6px #ffb347); }
+}
+
+@keyframes fadeInLogo {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-blinkTorch {
+  animation: blinkTorch 1.5s infinite;
+}
+
+.animation-delay-500 {
+  animation-delay: 0.5s;
+}
+
+.animate-flicker-flame {
+  animation: flickerFlame 1.5s infinite;
+}
+
+.flicker-flame {
+  animation: flickerFlame 1.5s infinite;
+}
+
+.animate-fadeInLogo {
+  animation: fadeInLogo 1s forwards;
+  animation-fill-mode: forwards;
+  animation-delay: 1.5s;
+}
+
+@keyframes rotate3D {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  25% { transform: rotateX(10deg) rotateY(10deg); }
+  50% { transform: rotateX(0deg) rotateY(20deg); }
+  75% { transform: rotateX(-10deg) rotateY(10deg); }
+  100% { transform: rotateX(0deg) rotateY(0deg); }
+}
+
+.animate-3dRotate {
+  animation: rotate3D 2s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+/* Horizontal LED Flashlight Animation */
+@keyframes horizontalLEDFlash {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.8), 0 0 40px rgba(0, 255, 0, 0.5);
+  }
+}
+
+.animate-horizontalLEDFlash {
+  animation: horizontalLEDFlash 1.5s infinite;
+}
+
+/* Neon Rectangle with Moving Lights Animation */
+.neon-rectangle {
+  position: relative;
+  display: inline-block;
+  border: 3px solid #00ffff;
+  box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: transparent;
+  backdrop-filter: none;
+  overflow: visible;
+  animation: neonLightMove 3s linear infinite;
+}
+
+@keyframes neonLightMove {
+  0% {
+    border-color: #00ffff;
+    box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+  }
+  50% {
+    border-color: #00ccff;
+    box-shadow: 0 0 20px #00ccff, 0 0 40px #00ccff;
+  }
+  100% {
+    border-color: #00ffff;
+    box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+  }
+}

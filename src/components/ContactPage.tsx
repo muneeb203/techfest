@@ -330,7 +330,7 @@ const ContactPage = () => {
               <div className="space-y-4">
                 {[
                   { platform: 'Instagram', handle: '@techfest.official', icon: Instagram, color: 'from-pink-500 to-purple-500', url: 'https://www.instagram.com/techfest.official/' },
-                  { platform: 'LinkedIn', handle: 'TechFest Pakistan', icon: Linkedin, color: 'from-blue-600 to-blue-700', url: 'https://www.linkedin.com/company/techfest-25/' },
+                  { platform: 'LinkedIn', handle: 'TechFest Pakistan', icon: Linkedin, color: 'from-blue-600 to-blue-700', url: 'https://www.linkedin.com/company/techfest-25/s ' },
                   
                 ].map((social, index) => (
                   <a

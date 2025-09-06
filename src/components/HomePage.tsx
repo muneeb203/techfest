@@ -47,7 +47,7 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
   return (
     <div className="space-y-20">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+      <section className="relative min-h-screen flex items-start justify-center px-4 overflow-hidden pt-4">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-20 left-10 w-64 h-64 bg-blue-500 rounded-full filter blur-3xl animate-pulse"></div>
@@ -57,10 +57,9 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
 
         <div className="relative z-10 text-center space-y-8 max-w-4xl">
           {/* Logo Animation */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-4">
             <div className="relative">
-              <img src="/images/logo_bgremove.png" alt="TechFest Logo" className="w-44 h-44 object-contain mx-auto transform hover:scale-110 transition-transform duration-300" />
-              <div className="absolute -inset-2 bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 rounded-2xl opacity-20 blur-lg animate-pulse"></div>
+              <img src="/images/logo_bgremove.png" alt="TechFest Logo" className="w-44 h-44 object-contain mx-auto" />
             </div>
           </div>
 
@@ -234,4 +233,4 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
   );
 };
 
-export default HomePage;
+export default HomePage;  
