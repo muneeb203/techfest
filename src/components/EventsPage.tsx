@@ -34,7 +34,7 @@ const EventsPage = ({ setCurrentPage }: { setCurrentPage: (page: string) => void
       description: 'Our successful inaugural event in the capital city with amazing participation.',
       highlights: ['Cloud Computing', 'Data Science', 'DevOps', 'Open Source'],
       speakers: ['Dr. Umar Baig'],
-      image: 'images\\Islamabad_cover.webp'
+      image: 'images\\Islamabad_cover.jpg'
     }
   ];
 
