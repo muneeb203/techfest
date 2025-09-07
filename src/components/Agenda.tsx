@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar, MapPin, Download, ExternalLink, Users, Award } from 'lucide-react';
+import { Calendar, MapPin, Download, ExternalLink, Users, Award, ChevronRight } from 'lucide-react';
 
 const Agenda = () => {
   const handleRegisterNow = () => {
@@ -38,7 +38,7 @@ const Agenda = () => {
               <p className="text-gray-400">University of Peshawar</p>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="text-center">
               <Calendar className="w-8 h-8 text-blue-400 mx-auto mb-2" />
               <p className="text-white font-medium">11th October 2025</p>
@@ -52,54 +52,104 @@ const Agenda = () => {
               <p className="text-white font-medium">Innovation & Networking</p>
             </div>
           </div>
+          {/* Google Maps Embed */}
+          <div className="rounded-xl overflow-hidden border border-blue-500/30">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3307.774673489874!2d71.48440339590178!3d33.99832100024488!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38d92de8c4cd1d21%3A0x56a608fc5c4c5df6!2sUniversity%20of%20Peshawar!5e0!3m2!1sen!2s!4v1757231684917!5m2!1sen!2s"
+              width="100%"
+              height="300"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="University of Peshawar Location"
+            ></iframe>
+          </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-          <button
-            onClick={handleRegisterNow}
-            className="flex items-center justify-center space-x-3 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105"
-          >
-            <span>Register Now</span>
-            <ExternalLink className="w-5 h-5" />
-          </button>
+        {/* Registration & Community Section */}
+        <div className="bg-slate-800/30 backdrop-blur-md border border-blue-500/20 rounded-2xl p-8 mb-8">
+          <h3 className="text-xl font-bold text-white mb-6 text-center">Join TechFest'25</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="text-center">
+              <button
+                onClick={handleRegisterNow}
+                className="w-full flex items-center justify-center space-x-3 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 mb-3"
+              >
+                <span>Register Now</span>
+                <ExternalLink className="w-5 h-5" />
+              </button>
+              <p className="text-sm text-gray-400">Secure your spot at Pakistan's premier tech festival</p>
+            </div>
 
-          <button
-            onClick={handleSponsorshipPackageDownload}
-            className="flex items-center justify-center space-x-3 py-4 border border-blue-500/50 text-blue-400 rounded-lg font-medium hover:bg-blue-500/10 backdrop-blur-sm transition-all duration-300"
-          >
-            <Download className="w-5 h-5" />
-            <span>Sponsorship Package</span>
-          </button>
-
-          <button
-            onClick={handleSponsorshipForm}
-            className="flex items-center justify-center space-x-3 py-4 border border-teal-500/50 text-teal-400 rounded-lg font-medium hover:bg-teal-500/10 backdrop-blur-sm transition-all duration-300"
-          >
-            <Award className="w-5 h-5" />
-            <span>Sponsorship Form</span>
-          </button>
-
-          <button
-            onClick={handleCommunityAgendaDownload}
-            className="flex items-center justify-center space-x-3 py-4 border border-purple-500/50 text-purple-400 rounded-lg font-medium hover:bg-purple-500/10 backdrop-blur-sm transition-all duration-300"
-          >
-            <Download className="w-5 h-5" />
-            <span>Community Agenda</span>
-          </button>
+            <div className="text-center">
+              <button
+                onClick={handleCommunityAgendaDownload}
+                className="w-full flex items-center justify-center space-x-3 py-4 border border-purple-500/50 text-purple-400 rounded-lg font-medium hover:bg-purple-500/10 backdrop-blur-sm transition-all duration-300 mb-3"
+              >
+                <Download className="w-5 h-5" />
+                <span>Community Agenda</span>
+              </button>
+              <p className="text-sm text-gray-400">Download the detailed community event schedule</p>
+            </div>
+          </div>
         </div>
 
-        {/* Society Registration Link */}
-        <div className="text-center">
-          <p className="text-gray-400 mb-4">Want to register your society for TechFest'25?</p>
-          <button
-            onClick={handleSocietyRegistration}
-            className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105"
-          >
-            <Users className="w-5 h-5" />
-            <span>Register Your Society</span>
-            <ExternalLink className="w-4 h-4" />
-          </button>
+        {/* Sponsorship Section */}
+        <div className="bg-slate-800/30 backdrop-blur-md border border-teal-500/20 rounded-2xl p-8 mb-8">
+          <h3 className="text-xl font-bold text-white mb-6 text-center">Sponsorship Opportunities</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="text-center">
+              <button
+                onClick={handleSponsorshipPackageDownload}
+                className="w-full flex items-center justify-center space-x-3 py-4 border border-blue-500/50 text-blue-400 rounded-lg font-medium hover:bg-blue-500/10 backdrop-blur-sm transition-all duration-300 mb-3"
+              >
+                <Download className="w-5 h-5" />
+                <span>Sponsorship Package</span>
+              </button>
+              <p className="text-sm text-gray-400">Explore our comprehensive sponsorship tiers and benefits</p>
+            </div>
+
+            <div className="text-center">
+              <button
+                onClick={handleSponsorshipForm}
+                className="w-full flex items-center justify-center space-x-3 py-4 border border-teal-500/50 text-teal-400 rounded-lg font-medium hover:bg-teal-500/10 backdrop-blur-sm transition-all duration-300 mb-3"
+              >
+                <Award className="w-5 h-5" />
+                <span>Sponsorship Form</span>
+              </button>
+              <p className="text-sm text-gray-400">Apply to become a TechFest sponsor</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Society Registration & Community Sponsorship Section */}
+        <div className="bg-slate-800/30 backdrop-blur-md border border-purple-500/20 rounded-2xl p-8 mb-8">
+          <h3 className="text-xl font-bold text-white mb-6 text-center">Society & Community</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="text-center">
+              <button
+                onClick={handleSocietyRegistration}
+                className="w-full flex items-center justify-center space-x-3 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 mb-3"
+              >
+                <Users className="w-5 h-5" />
+                <span>Register Your Society</span>
+                <ExternalLink className="w-4 h-4" />
+              </button>
+              <p className="text-sm text-gray-400">Bring your community and showcase your society's innovations</p>
+            </div>
+
+            <div className="text-center">
+              <button
+                onClick={handleCommunityAgendaDownload}
+                className="w-full flex items-center justify-center space-x-3 py-4 border border-green-500/50 text-green-400 rounded-lg font-medium hover:bg-green-500/10 backdrop-blur-sm transition-all duration-300 mb-3"
+              >
+                <Download className="w-5 h-5" />
+                <span>Community Sponsor</span>
+              </button>
+              <p className="text-sm text-gray-400">Download community sponsorship package and guidelines</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

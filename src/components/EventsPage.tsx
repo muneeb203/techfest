@@ -60,6 +60,21 @@ const EventsPage = ({ setCurrentPage }: { setCurrentPage: (page: string) => void
     window.open('https://docs.google.com/forms/d/e/1FAIpQLSfgh7v9gxfclcWDjEKySz6kO7Ir6JPcOFYKexttLVKzo16u-Q/viewform', '_blank');
   };
 
+  const handleAgendaDownload = (event: any) => {
+    if (event.city === 'islamabad') {
+      // Download the agenda PDF for Techfest Islamabad
+      const link = document.createElement('a');
+      link.href = '/techfest_islamabad_agenda.pdf';
+      link.download = 'Techfest_Islamabad_Agenda.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // For other events, navigate to agenda page
+      setCurrentPage('agenda');
+    }
+  };
+
   return (
     <div className="min-h-screen px-4 py-20">
       <div className="container mx-auto">
@@ -193,10 +208,11 @@ const EventsPage = ({ setCurrentPage }: { setCurrentPage: (page: string) => void
                     )}
 
                     <button
-                      onClick={() => setCurrentPage('agenda')}
-                      className="px-6 py-3 border border-blue-500/50 text-blue-400 rounded-lg font-medium hover:bg-blue-500/10 backdrop-blur-sm transition-all duration-300 flex items-center justify-center"
+                      onClick={() => handleAgendaDownload(event)}
+                      className="px-6 py-3 border border-blue-500/50 text-blue-400 rounded-lg font-medium hover:bg-blue-500/10 backdrop-blur-sm transition-all duration-300 flex items-center justify-center space-x-2"
                     >
                       <span>Agenda</span>
+                      {event.city === 'islamabad' && <Download className="w-4 h-4" />}
                     </button>
                   </div>
                 </div>

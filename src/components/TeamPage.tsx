@@ -8,7 +8,7 @@ const TeamPage = () => {
     {
       id: 1,
       name: 'Muneeb Qureshi',
-      role: 'Founder & CEO',
+      role: 'Core Member',
       category: 'core',
       image: 'images/muneeb.jpg',
       bio: 'Visionary leader with 10+ years in tech industry',
@@ -20,7 +20,7 @@ const TeamPage = () => {
     {
       id: 2,
       name: 'Syed Muhammad Asad',
-      role: 'CTO',
+      role: 'Core Member',
       category: 'core',
       image: 'images/asad.jpg',
       bio: 'Tech enthusiast and innovation driver',
@@ -32,7 +32,7 @@ const TeamPage = () => {
     {
       id: 3,
       name: 'Roshan Mughal',
-      role: 'Head of Events',
+      role: 'Core Member',
       category: 'core',
       image: 'images/roshan.jpg',
       bio: 'Event management expert with creative flair',
@@ -44,7 +44,7 @@ const TeamPage = () => {
     {
       id: 4,
       name: 'Syed Fawad Raza Kazmi',
-      role: 'Logistics Manager',
+      role: 'Core Member',
       category: 'core',
       image: 'images/fawad.jpg',
       bio: 'Event management expert with creative flair',
