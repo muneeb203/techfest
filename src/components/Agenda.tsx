@@ -7,13 +7,16 @@ const Agenda = () => {
   };
 
   const handleSponsorshipPackageDownload = () => {
-    // Placeholder for sponsorship package download
-    alert('Sponsorship package download will be available soon!');
+    const link = document.createElement('a');
+    link.href = '/images/Techfest%20Sponsorship%20Proposal%20.pdf';
+    link.download = 'Techfest Sponsorship Proposal.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleSponsorshipForm = () => {
-    // Placeholder for sponsorship form
-    alert('Sponsorship form will be available soon!');
+    window.open('https://wa.me/923300078040', '_blank');
   };
 
   const handleCommunityAgendaDownload = () => {
@@ -116,7 +119,7 @@ const Agenda = () => {
                 className="w-full flex items-center justify-center space-x-3 py-4 border border-teal-500/50 text-teal-400 rounded-lg font-medium hover:bg-teal-500/10 backdrop-blur-sm transition-all duration-300 mb-3"
               >
                 <Award className="w-5 h-5" />
-                <span>Sponsorship Form</span>
+                <span>Contact Us for Sponsorship</span>
               </button>
               <p className="text-sm text-gray-400">Apply to become a TechFest sponsor</p>
             </div>
