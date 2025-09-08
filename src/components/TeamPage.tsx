@@ -76,6 +76,54 @@ const TeamPage = () => {
         linkedin: '#',
         instagram: '#'
       }
+    },
+    {
+      id: 7,
+      name: 'Musa Bukhari',
+      role: 'Volunteer',
+      category: 'volunteer',
+      image: 'images/musa_bukhari.jpg',
+      bio: 'Passionate about tech and community building',
+      social: {
+        linkedin: 'https://www.linkedin.com/in/musa-bukhari-153ba82a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+        //instagram: '#'
+      }
+    },
+    {
+      id: 8,
+      name: 'Sara Kashif',
+      role: 'Volunteer',
+      category: 'volunteer',
+      image: 'images/sara_kashif.jpg',
+      bio: 'Eager to learn and contribute to tech events',
+      social: {
+        linkedin: 'https://www.linkedin.com/in/sara-kashif-a8b4a4347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      //  instagram: '#'
+      }
+    },
+    {
+      id: 9,
+      name: 'Uzair Aijaz',
+      role: 'Volunteer',
+      category: 'volunteer',
+      image: 'images/uzair_aijaz.jpg',
+      bio: 'Tech enthusiast with a knack for organization',
+      social: {
+        linkedin: 'https://www.linkedin.com/in/uzair-aijaz-54178b347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+       // instagram: '#'
+      }
+    },
+    {
+      id: 10,
+      name: 'Muhammad Asim ',
+      role: 'Volunteer',
+      category: 'volunteer',
+      image: 'images/asim.jpg',
+      bio: 'Dedicated to making tech events successful',
+      // social: {
+      //   linkedin: '#',
+      //   instagram: '#'
+      // }
     }
   ];
 
