@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Instagram, Twitter, Filter } from 'lucide-react';
+import { Github, Linkedin, Instagram, Twitter, Filter, Users } from 'lucide-react';
 
 const TeamPage = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -10,7 +10,7 @@ const TeamPage = () => {
       name: 'Muneeb Qureshi',
       role: 'Core Member',
       category: 'core',
-      image: 'images/muneeb.jpg',
+      image: '/images/muneeb.jpg',
       bio: 'Visionary leader with 10+ years in tech industry',
       social: {
         linkedin: 'https://www.linkedin.com/in/muneebqureshi2003/',
@@ -22,7 +22,7 @@ const TeamPage = () => {
       name: 'Syed Muhammad Asad',
       role: 'Core Member',
       category: 'core',
-      image: 'images/asad.jpg',
+      image: '/images/asad.jpg',
       bio: 'Tech enthusiast and innovation driver',
       social: {
         linkedin: '#',
@@ -34,7 +34,7 @@ const TeamPage = () => {
       name: 'Roshan Mughal',
       role: 'Core Member',
       category: 'core',
-      image: 'images/roshan.jpg',
+      image: '/images/roshan.jpg',
       bio: 'Event management expert with creative flair',
       social: {
         linkedin: '#',
@@ -46,7 +46,7 @@ const TeamPage = () => {
       name: 'Syed Fawad Raza Kazmi',
       role: 'Core Member',
       category: 'core',
-      image: 'images/fawad.jpg',
+      image: '/images/fawad.jpg',
       bio: 'Event management expert with creative flair',
       social: {
         linkedin: '#',
@@ -58,7 +58,7 @@ const TeamPage = () => {
       name: 'Sardar Burhan',
       role: 'Lead Peshawar Chapter',
       category: 'chapter-lead',
-      image: 'images/burhan.jpg',
+      image: '/images/burhan.jpg',
       bio: 'Event management expert with creative flair',
       social: {
         linkedin: '#',
@@ -70,7 +70,7 @@ const TeamPage = () => {
       name: 'Mohib Qureshi',
       role: 'Lead Islamabad Chapter',
       category: 'chapter-lead',  
-      image: 'images/mohib.jpg',
+      image: '/images/mohib.jpg',
       bio: 'Event management expert with creative flair',
       social: {
         linkedin: '#',
@@ -82,7 +82,7 @@ const TeamPage = () => {
       name: 'Musa Bukhari',
       role: 'Volunteer',
       category: 'volunteer',
-      image: 'images/musa_bukhari.jpg',
+      image: '/images/musa_bukhari.jpg',
       bio: 'Passionate about tech and community building',
       social: {
         linkedin: 'https://www.linkedin.com/in/musa-bukhari-153ba82a8?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
@@ -94,7 +94,7 @@ const TeamPage = () => {
       name: 'Sara Kashif',
       role: 'Volunteer',
       category: 'volunteer',
-      image: 'images/sara_kashif.jpg',
+      image: '/images/sara_kashif.jpg',
       bio: 'Eager to learn and contribute to tech events',
       social: {
         linkedin: 'https://www.linkedin.com/in/sara-kashif-a8b4a4347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
@@ -106,7 +106,7 @@ const TeamPage = () => {
       name: 'Uzair Aijaz',
       role: 'Volunteer',
       category: 'volunteer',
-      image: 'images/uzair_aijaz.jpg',
+      image: '/images/uzair_aijaz.jpg',
       bio: 'Tech enthusiast with a knack for organization',
       social: {
         linkedin: 'https://www.linkedin.com/in/uzair-aijaz-54178b347?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
@@ -118,7 +118,7 @@ const TeamPage = () => {
       name: 'Muhammad Asim ',
       role: 'Volunteer',
       category: 'volunteer',
-      image: 'images/asim.jpg',
+      image: '/images/asim.jpg',
       bio: 'Dedicated to making tech events successful',
       // social: {
       //   linkedin: '#',
@@ -138,7 +138,7 @@ const TeamPage = () => {
     selectedFilter === 'all' || member.category === selectedFilter
   );
 
-  const getSocialIcon = (platform) => {
+  const getSocialIcon = (platform: string) => {
     switch (platform) {
       case 'github': return Github;
       case 'linkedin': return Linkedin;
@@ -148,7 +148,7 @@ const TeamPage = () => {
     }
   };
 
-  const getSocialColor = (platform) => {
+  const getSocialColor = (platform: string) => {
     switch (platform) {
       case 'github': return 'hover:text-gray-400';
       case 'linkedin': return 'hover:text-blue-400';
@@ -230,19 +230,19 @@ const TeamPage = () => {
                   <div className={`absolute top-4 right-4 px-3 py-1 rounded-full text-xs font-medium ${
                     member.category === 'core' 
                       ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-                      : member.category === 'media'
+                      : member.category === 'chapter-lead'
                       ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
                       : 'bg-green-500/20 text-green-400 border border-green-500/30'
                   }`}>
-                    {member.category === 'core' ? 'Core' : member.category === 'media' ? 'Media' : 'Volunteer'}
+                    {member.category === 'core' ? 'Core' : member.category === 'chapter-lead' ? 'Chapter Lead' : 'Volunteer'}
                   </div>
 
                   {/* Social Links Overlay */}
                   <div className="absolute bottom-4 left-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    {Object.entries(member.social).map(([platform, url]) => {
+                    {member.social && Object.entries(member.social).map(([platform, url]) => {
                       const IconComponent = getSocialIcon(platform);
-                      if (!IconComponent) return null;
-                      
+                      if (!IconComponent || !url || url === '#') return null;
+
                       return (
                         <a
                           key={platform}
