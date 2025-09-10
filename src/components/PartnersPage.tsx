@@ -444,9 +444,9 @@ const PartnersPage = () => {
               </div>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
-                Partner With Us
-              </button>
+              <a href="https://forms.gle/Z2EzHtqySSWK6cR59" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-full font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 inline-block text-center">
+                Register Your Society
+              </a>
               <button className="px-8 py-4 border border-blue-500/50 text-blue-400 rounded-full font-semibold hover:bg-blue-500/10 backdrop-blur-sm transition-all duration-300 transform hover:scale-105">
                 Partnership Deck
               </button>

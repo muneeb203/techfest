@@ -1,10 +1,49 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, Download, Share2, Heart, Folder, Image as ImageIcon } from 'lucide-react';
 
+interface GalleryFolder {
+  id: number;
+  title: string;
+  subtitle: string;
+  coverImage: string;
+  imageCount: number;
+  description: string;
+  images: string[];
+}
+
 const GalleryPage = () => {
-  const [selectedFolder, setSelectedFolder] = useState(null);
-  const [lightboxImage, setLightboxImage] = useState(null);
-  const [lightboxIndex, setLightboxIndex] = useState(0);
+  const [selectedFolder, setSelectedFolder] = useState<GalleryFolder | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number>(0);
+  const [uploadedImages, setUploadedImages] = useState<string[]>([]);
+
+  // List of all images in TF_ISL25 folder
+  const tfIsl25Images = [
+    '/images/TF_ISL25/97.png',
+    '/images/TF_ISL25/98.png',
+    '/images/TF_ISL25/99.png',
+    '/images/TF_ISL25/100.png',
+    '/images/TF_ISL25/101.png',
+    '/images/TF_ISL25/102.png',
+    '/images/TF_ISL25/Techfest 1.jpg',
+    '/images/TF_ISL25/Techfest 2.jpg',
+    '/images/TF_ISL25/Techfest 3.jpg',
+    '/images/TF_ISL25/Techfest 4.jpg',
+    '/images/TF_ISL25/Techfest 5.jpg',
+  ];
+
+  // List of all images/videos in BTS folder
+  const btsImages = [
+    '/images/BTS/103.png',
+    '/images/BTS/104.png',
+    '/images/BTS/IMG-20250910-WA0005.jpg',
+    '/images/BTS/IMG-20250910-WA0006.jpg',
+    '/images/BTS/IMG-20250910-WA0007.jpg',
+    '/images/BTS/VID-20250910-WA0004.mp4',
+    '/images/BTS/VID-20250910-WA0005.mp4',
+    '/images/BTS/WhatsApp Video 2025-09-10 at 00.34.57_b5513a0c.mp4',
+    '/images/BTS/WhatsApp Video 2025-09-10 at 00.34.59_c0fc5ae5.mp4',
+  ];
 
   const galleryFolders = [
     {
@@ -12,30 +51,24 @@ const GalleryPage = () => {
       title: 'TechFest\'25 Islamabad',
       subtitle: 'February 2025',
       coverImage: 'images/TF_ISL25/Techfest 3.jpg',
-      imageCount: 5,
+      imageCount: tfIsl25Images.length,
       description: 'Our inaugural event in the capital city with amazing workshops and networking',
-      images: [
-        'images/TF_ISL25/Techfest 1.jpg',
-        'images/TF_ISL25/Techfest 2.jpg',
-        'images/TF_ISL25/Techfest 3.jpg',
-        'images/TF_ISL25/Techfest 4.jpg',
-        'images/TF_ISL25/Techfest 5.jpg'
-      ]
+      images: tfIsl25Images
     },
     {
       id: 2,
       title: 'TechFest\'25 Islamabad Behind the Scenes',
       subtitle: 'February 2025',
-      coverImage: 'images/TF_ISL25/Techfest 3.jpg',
-      imageCount: 18,
-      description: 'Hands-on workshops and coding sessions in Karachi',
-      images: [
-        'images/TF_ISL25/Techfest 1.jpg'
-      ]
+      coverImage: 'images/BTS/103.png',
+      imageCount: btsImages.length,
+      description: 'Hands-on workshops and coding sessions in Islamabad',
+      images: btsImages
     }
   ];
 
-  const openFolder = (folder) => {
+  const allFolders = [...galleryFolders];
+
+  const openFolder = (folder: GalleryFolder) => {
     setSelectedFolder(folder);
   };
 
@@ -44,7 +77,7 @@ const GalleryPage = () => {
     setLightboxImage(null);
   };
 
-  const openLightbox = (image, index) => {
+  const openLightbox = (image: string, index: number) => {
     setLightboxImage(image);
     setLightboxIndex(index);
   };
@@ -69,13 +102,21 @@ const GalleryPage = () => {
     }
   };
 
-  const handleKeyPress = (e) => {
+  const handleKeyPress = (e: KeyboardEvent) => {
     if (e.key === 'Escape') {
       closeLightbox();
     } else if (e.key === 'ArrowRight') {
       nextImage();
     } else if (e.key === 'ArrowLeft') {
       prevImage();
+    }
+  };
+
+  const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = e.target.files;
+    if (files) {
+      const newImages = Array.from(files).map(file => URL.createObjectURL(file));
+      setUploadedImages(prev => [...prev, ...newImages]);
     }
   };
 
@@ -118,31 +159,45 @@ const GalleryPage = () => {
 
           {/* Images Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {selectedFolder.images.map((image, index) => (
-              <div
-                key={index}
-                className="relative group cursor-pointer overflow-hidden rounded-lg aspect-square"
-                onClick={() => openLightbox(image, index)}
-              >
-                <img
-                  src={image}
-                  alt={`${selectedFolder.title} ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
-                    <ImageIcon className="w-6 h-6 text-white" />
+            {selectedFolder.images.map((image, index) => {
+              const isVideoFile = image.endsWith('.mp4') || image.endsWith('.webm') || image.endsWith('.avi');
+              return (
+                <div
+                  key={index}
+                  className="relative group cursor-pointer overflow-hidden rounded-lg aspect-square"
+                  onClick={() => openLightbox(image, index)}
+                >
+                  {isVideoFile ? (
+                    <video
+                      src={image}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                      muted
+                      loop
+                      onMouseEnter={(e: React.MouseEvent<HTMLVideoElement>) => (e.target as HTMLVideoElement).play()}
+                      onMouseLeave={(e: React.MouseEvent<HTMLVideoElement>) => (e.target as HTMLVideoElement).pause()}
+                    />
+                  ) : (
+                    <img
+                      src={image}
+                      alt={`${selectedFolder.title} ${index + 1}`}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center">
+                      <ImageIcon className="w-6 h-6 text-white" />
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Lightbox */}
           {lightboxImage && (
             <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4">
-              <div className="relative max-w-5xl max-h-[90vh] w-full">
+              <div className="relative w-full h-full max-w-full max-h-full">
                 {/* Close Button */}
                 <button
                   onClick={closeLightbox}
@@ -170,12 +225,20 @@ const GalleryPage = () => {
                   </button>
                 )}
 
-                {/* Image */}
-                <img
-                  src={lightboxImage}
-                  alt={`${selectedFolder.title} ${lightboxIndex + 1}`}
-                  className="w-full h-full object-contain rounded-lg"
-                />
+                {/* Image/Video */}
+                {lightboxImage!.endsWith('.mp4') || lightboxImage!.endsWith('.webm') || lightboxImage!.endsWith('.avi') ? (
+                  <video
+                    src={lightboxImage}
+                    controls
+                    className="w-full h-full object-contain rounded-lg"
+                  />
+                ) : (
+                  <img
+                    src={lightboxImage}
+                    alt={`${selectedFolder!.title} ${lightboxIndex + 1}`}
+                    className="w-full h-full object-contain rounded-lg"
+                  />
+                )}
 
                 {/* Image Info */}
                 <div className="absolute bottom-4 left-4 right-4 bg-black/50 backdrop-blur-sm rounded-lg p-4 text-white">
@@ -221,7 +284,7 @@ const GalleryPage = () => {
         </div>
 
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-16">
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent mb-2">
               {galleryFolders.reduce((total, folder) => total + folder.imageCount, 0)}
@@ -236,21 +299,15 @@ const GalleryPage = () => {
           </div>
           <div className="text-center">
             <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent mb-2">
-              5
+              2
             </div>
             <div className="text-gray-400">Cities Covered</div>
-          </div>
-          <div className="text-center">
-            <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent mb-2">
-              10K+
-            </div>
-            <div className="text-gray-400">Memories Created</div>
           </div>
         </div>
 
         {/* Gallery Folders */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {galleryFolders.map((folder) => (
+          {allFolders.map((folder) => (
             <div
               key={folder.id}
               className="group relative cursor-pointer"
@@ -307,20 +364,19 @@ const GalleryPage = () => {
           ))}
         </div>
 
-        {/* Coming Soon */}
-        <div className="text-center mt-16">
-          <div className="bg-slate-800/50 backdrop-blur-md border border-blue-500/30 rounded-2xl p-12 max-w-2xl mx-auto">
-            <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
-              <Folder className="w-8 h-8 text-white" />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">More Albums Coming Soon</h3>
-            <p className="text-gray-400 mb-6">
-              We're constantly adding new photos from our events. Follow us on social media to see the latest updates and behind-the-scenes content.
-            </p>
-            <button className="px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
-              Follow for Updates
-            </button>
-          </div>
+        {/* Upload Images */}
+        <div className="mt-12 text-center">
+          <label htmlFor="upload-input" className="cursor-pointer inline-block px-6 py-3 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105">
+            Upload Images
+          </label>
+          <input
+            id="upload-input"
+            type="file"
+            multiple
+            accept="image/*,video/*"
+            className="hidden"
+            onChange={handleUpload}
+          />
         </div>
       </div>
     </div>

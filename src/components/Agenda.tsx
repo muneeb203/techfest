@@ -25,8 +25,7 @@ const Agenda = () => {
   };
 
   const handleSocietyRegistration = () => {
-    // Placeholder for society registration form
-    alert('Society registration form will be available soon!');
+    window.open('https://forms.gle/XvpUd4kSgnoWnzyq6', '_blank');
   };
 
   return (
