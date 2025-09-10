@@ -31,7 +31,7 @@ const TeamPage = () => {
     },
     {
       id: 3,
-      name: 'Roshan Mughal',
+      name: 'Roshaan Mughal',
       role: 'Core Member',
       category: 'core',
       image: '/images/roshan.jpg',
