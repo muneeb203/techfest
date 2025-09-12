@@ -21,8 +21,12 @@ const Agenda = () => {
   };
 
   const handleCommunityAgendaDownload = () => {
-    // Placeholder for community agenda download
-    alert('Community agenda download will be available soon!');
+    const link = document.createElement('a');
+    link.href = '/Community%20partnership%20proposal.pdf';
+    link.download = 'Community partnership proposal.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleSocietyRegistration = () => {
