@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Calendar, Users, MapPin, Zap, Code, Cpu, Rocket } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 interface HomePageProps {
   timeLeft: {
@@ -46,6 +47,11 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
 
   return (
     <div className="space-y-20">
+      <Helmet>
+        <title>TechFest Pakistan - Home</title>
+        <meta name="description" content="Join Pakistan's premier technology festival bringing together developers, innovators, and tech enthusiasts from across the nation." />
+        <meta name="keywords" content="TechFest, Pakistan, technology festival, hackathons, workshops, networking, innovation" />
+      </Helmet>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-start justify-center px-4 overflow-hidden pt-4">
         {/* Animated Background Elements */}
@@ -233,4 +239,4 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
   );
 };
 
-export default HomePage;  
+export default HomePage;

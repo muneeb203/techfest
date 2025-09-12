@@ -1,8 +1,12 @@
-# TODO: Dynamically Fetch Images from TF_ISL25 Folder
+# SEO Setup with React Helmet Async - TODO List
 
-- [x] Modify GalleryPage.tsx to use import.meta.glob for dynamic image loading
-- [x] Update the images array for TF_ISL25 folder with all files from the folder
-- [x] Update imageCount to reflect the actual number of images (11)
-- [x] Add support for video files in the display (if any)
-- [x] Add image upload functionality to the gallery page
-- [x] Test the gallery display to ensure all images load correctly
+- [x] Install react-helmet-async via npm
+- [x] Update src/main.tsx to add HelmetProvider wrapper
+- [x] Add Helmet with meta tags to src/components/HomePage.tsx
+- [x] Add Helmet with meta tags to src/components/EventsPage.tsx
+- [x] Add Helmet with meta tags to src/components/TeamPage.tsx
+- [x] Add Helmet with meta tags to src/components/GalleryPage.tsx
+- [x] Add Helmet with meta tags to src/components/PartnersPage.tsx
+- [x] Add Helmet with meta tags to src/components/ContactPage.tsx
+- [x] Add Helmet with meta tags to src/components/Agenda.tsx
+- [x] Test the implementation and verify meta tags

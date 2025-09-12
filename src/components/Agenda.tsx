@@ -1,5 +1,6 @@
 import React from 'react';
 import { Calendar, MapPin, Download, ExternalLink, Users, Award, ChevronRight } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const Agenda = () => {
   const handleRegisterNow = () => {
@@ -30,6 +31,11 @@ const Agenda = () => {
 
   return (
     <div className="min-h-screen px-4 py-20">
+      <Helmet>
+        <title>TechFest Pakistan - Agenda</title>
+        <meta name="description" content="Check out the TechFest Pakistan agenda for TechFest'25 Peshawar Chapter. View event schedule, venue details, registration information, and sponsorship opportunities for October 11, 2025." />
+        <meta name="keywords" content="TechFest, agenda, schedule, event details, venue, registration, sponsorship, Peshawar, Pakistan, technology festival" />
+      </Helmet>
       <div className="container mx-auto max-w-4xl">
         {/* Venue Information */}
         <div className="bg-slate-800/50 backdrop-blur-md border border-blue-500/30 rounded-2xl p-8 mb-12">

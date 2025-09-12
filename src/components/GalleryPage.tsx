@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, ChevronLeft, ChevronRight, Download, Share2, Heart, Folder, Image as ImageIcon } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 interface GalleryFolder {
   id: number;
@@ -272,6 +273,11 @@ const GalleryPage = () => {
 
   return (
     <div className="min-h-screen px-4 py-20">
+      <Helmet>
+        <title>TechFest Pakistan - Event Gallery</title>
+        <meta name="description" content="Relive the amazing moments from TechFest events. Browse our photo and video gallery showcasing workshops, hackathons, and networking sessions from Islamabad and Peshawar chapters." />
+        <meta name="keywords" content="TechFest, gallery, photos, videos, events, workshops, hackathons, Pakistan, technology festival" />
+      </Helmet>
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, Globe, Instagram, Linkedin, Github, CheckCircle } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -145,6 +146,11 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen px-4 py-20">
+      <Helmet>
+        <title>TechFest Pakistan - Contact Us</title>
+        <meta name="description" content="Get in touch with TechFest Pakistan. Have questions about events, partnerships, or sponsorship? Contact our team for inquiries about hackathons, workshops, and tech innovation in Pakistan." />
+        <meta name="keywords" content="TechFest, contact, get in touch, support, partnerships, sponsorship, Pakistan, technology festival" />
+      </Helmet>
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

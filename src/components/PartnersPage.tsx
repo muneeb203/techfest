@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Award, ExternalLink, Filter, Star, Building, Briefcase, Users, Globe } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const PartnersPage = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -252,7 +253,7 @@ const PartnersPage = () => {
     selectedFilter === 'all' || partner.category === selectedFilter
   );
 
-  const getTierBadgeClass = (tier) => {
+  const getTierBadgeClass = (tier: string) => {
     switch (tier) {
       case 'platinum':
         return 'bg-blue-500/20 text-blue-400 border-blue-500/30';
@@ -265,7 +266,7 @@ const PartnersPage = () => {
     }
   };
 
-  const getTierBadgeLabel = (tier) => {
+  const getTierBadgeLabel = (tier: string) => {
     switch (tier) {
       case 'platinum': return 'Platinum Sponsor';
       case 'gold': return 'Gold Sponsor';
@@ -274,7 +275,7 @@ const PartnersPage = () => {
     }
   };
 
-  const getTierAccentClass = (tier) => {
+  const getTierAccentClass = (tier: string) => {
     switch (tier) {
       case 'platinum': return 'bg-gradient-to-r from-blue-400 to-cyan-400';
       case 'gold': return 'bg-gradient-to-r from-yellow-400 to-orange-400';
@@ -283,13 +284,18 @@ const PartnersPage = () => {
     }
   };
 
-  const formatWebsite = (url) => {
+  const formatWebsite = (url: string) => {
     if (!url || url === '#') return '#';
     return url.startsWith('http') ? url : `https://${url}`;
   };
 
   return (
     <div className="min-h-screen px-4 py-20">
+      <Helmet>
+        <title>TechFest Pakistan - Our Partners</title>
+        <meta name="description" content="Discover our valued partners and sponsors supporting TechFest Pakistan. From tech companies to academic institutions and media partners, meet the organizations driving innovation together." />
+        <meta name="keywords" content="TechFest, partners, sponsors, collaborators, tech companies, academic institutions, media partners, Pakistan" />
+      </Helmet>
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

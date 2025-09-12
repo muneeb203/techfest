@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Calendar, MapPin, Users, Clock, Download, ExternalLink, Star, Filter } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const EventsPage = ({ setCurrentPage }: { setCurrentPage: (page: string) => void }) => {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -77,6 +78,11 @@ const EventsPage = ({ setCurrentPage }: { setCurrentPage: (page: string) => void
 
   return (
     <div className="min-h-screen px-4 py-20">
+      <Helmet>
+        <title>TechFest Pakistan - Events</title>
+        <meta name="description" content="Explore upcoming and past TechFest events across Pakistan. Join hackathons, workshops, and networking opportunities in cities like Islamabad and Peshawar." />
+        <meta name="keywords" content="TechFest, events, hackathons, workshops, networking, Pakistan, technology festival, innovation" />
+      </Helmet>
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

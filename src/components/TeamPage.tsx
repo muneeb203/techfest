@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Github, Linkedin, Instagram, Twitter, Filter, Users } from 'lucide-react';
+import { Helmet } from 'react-helmet-async';
 
 const TeamPage = () => {
   const [selectedFilter, setSelectedFilter] = useState('all');
@@ -160,6 +161,11 @@ const TeamPage = () => {
 
   return (
     <div className="min-h-screen px-4 py-20">
+      <Helmet>
+        <title>TechFest Pakistan - Our Team</title>
+        <meta name="description" content="Meet the passionate team behind TechFest Pakistan. From core organizers to chapter leads and volunteers, discover the people making innovation happen across Pakistan." />
+        <meta name="keywords" content="TechFest, team, organizers, volunteers, chapter leads, Pakistan, technology festival, innovation" />
+      </Helmet>
       <div className="container mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
