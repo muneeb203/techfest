@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Menu, X, Calendar, Users, Image, Award, Mail, Phone, MapPin, Instagram, Linkedin, Github, Sun, Moon } from 'lucide-react';
+import { ChevronDown, Menu, X, Calendar, Users, Image, Award, Mail, Phone, MapPin, Instagram, Linkedin, Github } from 'lucide-react';
 import HomePage from './components/HomePage';
 import EventsPage from './components/EventsPage';
 import TeamPage from './components/TeamPage';
@@ -49,9 +49,7 @@ const App = () => {
     { id: 'contact', label: 'Contact', icon: Mail }
   ];
 
-  const toggleTheme = () => {
-    setIsDarkMode(!isDarkMode);
-  };
+
 
   const renderPage = () => {
     switch (currentPage) {
@@ -103,15 +101,8 @@ const App = () => {
               ))}
             </nav>
 
-            {/* Theme Toggle & Mobile Menu */}
-            <div className="flex items-center space-x-4">
-              <button
-                onClick={toggleTheme}
-                className={`p-2 rounded-lg transition-all duration-300 ${isDarkMode ? 'bg-slate-800 text-yellow-400 hover:bg-slate-700' : 'bg-white text-slate-700 hover:bg-gray-100'}`}
-              >
-                {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              </button>
-              
+            {/* Mobile Menu */}
+            <div className="flex items-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`md:hidden p-2 rounded-lg transition-all duration-300 ${isDarkMode ? 'bg-slate-800 text-white hover:bg-slate-700' : 'bg-white text-slate-700 hover:bg-gray-100'}`}
@@ -224,6 +215,16 @@ const App = () => {
           </div>
         </div>
       </footer>
+
+      {/* Floating Sticky Button */}
+      <button
+        onClick={() => setCurrentPage('agenda')}
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-500 to-teal-500 text-white font-semibold py-4 px-6 rounded-full shadow-[0_0_15px_rgba(14,165,233,0.7)] hover:shadow-[0_0_25px_rgba(14,165,233,1)] ring-2 ring-transparent hover:ring-teal-400 animate-bounce hover:scale-110 transition-all duration-500 flex items-center space-x-2"
+        aria-label="Agenda and Registration"
+      >
+        <span className="text-xl"></span>
+        <span>Agenda & Registration</span>
+      </button>
     </div>
   );
 };

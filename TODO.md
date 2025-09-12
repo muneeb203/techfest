@@ -1,12 +1,4 @@
-# SEO Setup with React Helmet Async - TODO List
+# TODO: Add Floating Sticky Button
 
-- [x] Install react-helmet-async via npm
-- [x] Update src/main.tsx to add HelmetProvider wrapper
-- [x] Add Helmet with meta tags to src/components/HomePage.tsx
-- [x] Add Helmet with meta tags to src/components/EventsPage.tsx
-- [x] Add Helmet with meta tags to src/components/TeamPage.tsx
-- [x] Add Helmet with meta tags to src/components/GalleryPage.tsx
-- [x] Add Helmet with meta tags to src/components/PartnersPage.tsx
-- [x] Add Helmet with meta tags to src/components/ContactPage.tsx
-- [x] Add Helmet with meta tags to src/components/Agenda.tsx
-- [x] Test the implementation and verify meta tags
+- [x] Add floating sticky button to src/App.tsx with "🚀 Agenda & Registration" text, positioned at bottom-right corner, always visible on all pages, with attractive styling and click handler to navigate to Agenda page
+- [x] Enhance button attractiveness: blue-to-teal gradient matching website theme, glowing shadow effect, larger size, ring on hover, bounce animation on load, enhanced hover scaling
