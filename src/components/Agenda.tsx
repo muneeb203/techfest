@@ -1,10 +1,72 @@
-import React from 'react';
-import { Calendar, MapPin, Download, ExternalLink, Users, Award, ChevronRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Calendar, MapPin, Download, ExternalLink, Users, Award, ChevronRight, FileText, BookOpen } from 'lucide-react';
 import { Helmet } from 'react-helmet-async';
+import { motion, useInView } from 'framer-motion';
+import ButtonWithTooltip from './ButtonWithTooltip';
+import Modal from './Modal';
 
 const Agenda = () => {
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+  const [isSponsorshipModalOpen, setIsSponsorshipModalOpen] = useState(false);
+  const [isSocietyModalOpen, setIsSocietyModalOpen] = useState(false);
+  const [isAmbassadorshipModalOpen, setIsAmbassadorshipModalOpen] = useState(false);
+  const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
+  const [isAmbassadorshipDownloadModalOpen, setIsAmbassadorshipDownloadModalOpen] = useState(false);
+
+  const termsContent = {
+    join: "By registering for TechFest'25, you agree to abide by the event code of conduct, provide accurate information, and participate responsibly. Registrations are subject to approval and availability. Refunds are not available after confirmation.",
+    sponsorship: "Sponsorship opportunities are available at various tiers. All sponsors must adhere to our branding guidelines and provide materials by the specified deadlines. Terms include exclusive rights, logo placement, and promotional benefits as outlined in the proposal.",
+    society: "Society registrations require submission of project details and team information. All participants must be current students or faculty. Societies are responsible for their own transportation, accommodation, and conduct during the event.",
+    ambassadorship: (
+      <div className="space-y-4">
+        <div className="text-center mb-6">
+          <h2 className="text-2xl font-bold text-orange-400 mb-2">🌟 TechFest 2.0 Ambassadorship Program</h2>
+          <p className="text-gray-300 leading-relaxed">
+            Become the face of TechFest 2.0 at your university or community! As an ambassador, you'll inspire registrations, spread the word, and earn exclusive rewards based on your impact.
+          </p>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold text-orange-300 mb-3">🎁 Perks Include:</h3>
+          <div className="space-y-2 ml-4">
+            <div className="flex items-center space-x-2">
+              <span className="text-green-400">•</span>
+              <span><strong className="text-orange-400">5+ Participants</strong> → Certificate of Appreciation (TechFest 2.0 Ambassador)</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-green-400">•</span>
+              <span><strong className="text-orange-400">15+ Participants</strong> → Free TechFest Pass + Digital Ambassador Badge</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-green-400">•</span>
+              <span><strong className="text-orange-400">25+ Participants</strong> → Free Pass + TechFest Merchandise (T-shirt, Stickers, Badge)</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-green-400">•</span>
+              <span><strong className="text-orange-400">40+ Participants</strong> → All above perks + On-stage Recognition at TechFest</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span className="text-green-400">•</span>
+              <span><strong className="text-orange-400">70+ Participants</strong> → All above perks + Exclusive Access to Speaker/Networking Lounge</span>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 className="text-lg font-semibold text-orange-300 mb-3">📋 Terms & Conditions:</h3>
+          <div className="text-gray-300 leading-relaxed space-y-2">
+            <p>• Perks are awarded only for verified registrations made through your unique referral code.</p>
+            <p>• All benefits are non-transferable, and higher tiers include perks from lower tiers.</p>
+            <p>• Ambassadors must promote TechFest in an ethical, respectful, and professional manner—any fake registrations, spamming, or misuse of TechFest branding will lead to disqualification.</p>
+            <p>• Final decisions rest with the TechFest 2025 Organizing Committee.</p>
+          </div>
+        </div>
+      </div>
+    )
+  };
+
   const handleRegisterNow = () => {
-    window.open('https://docs.google.com/forms/d/e/1FAIpQLSfgh7v9gxfclcWDjEKySz6kO7Ir6JPcOFYKexttLVKzo16u-Q/viewform', '_blank');
+    setIsRegistrationModalOpen(true);
   };
 
   const handleSponsorshipPackageDownload = () => {
@@ -33,8 +95,16 @@ const Agenda = () => {
     window.open('https://forms.gle/XvpUd4kSgnoWnzyq6', '_blank');
   };
 
+  const handleAmbassadorshipApply = () => {
+    window.open('https://forms.gle/B9DXgPTRkMqhPojD9', '_blank');
+  };
+
+  const handleAmbassadorshipDownload = () => {
+    setIsAmbassadorshipDownloadModalOpen(true);
+  };
+
   return (
-    <div className="min-h-screen px-4 py-20">
+    <div className="min-h-screen px-4 py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-gradient-x">
       <Helmet>
         <title>TechFest Pakistan - Agenda</title>
         <meta name="description" content="Check out the TechFest Pakistan agenda for TechFest'25 Peshawar Chapter. View event schedule, venue details, registration information, and sponsorship opportunities for October 11, 2025." />
@@ -42,7 +112,13 @@ const Agenda = () => {
       </Helmet>
       <div className="container mx-auto max-w-4xl">
         {/* Venue Information */}
-        <div className="bg-slate-800/50 backdrop-blur-md border border-blue-500/30 rounded-2xl p-8 mb-12">
+        <motion.div
+          className="bg-slate-800/50 backdrop-blur-md border border-blue-500/30 rounded-2xl p-8 mb-12"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
           <div className="flex items-center space-x-4 mb-6">
             <MapPin className="w-8 h-8 text-blue-400" />
             <div>
@@ -77,35 +153,53 @@ const Agenda = () => {
               title="University of Peshawar Location"
             ></iframe>
           </div>
+        </motion.div>
+
+        {/* Section Divider */}
+        <div className="flex items-center justify-center mb-8">
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
+          <div className="px-4 text-cyan-400 font-semibold">• • •</div>
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent"></div>
         </div>
 
         {/* Registration & Community Section */}
-        <div className="bg-slate-800/30 backdrop-blur-md border border-blue-500/20 rounded-2xl p-8 mb-8">
+        <motion.div
+          className="bg-slate-800/30 backdrop-blur-md border border-blue-500/20 rounded-2xl p-8 mb-8"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
           <h3 className="text-xl font-bold text-white mb-6 text-center">Join TechFest'25</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="text-center">
-              <button
-                onClick={handleRegisterNow}
-                className="w-full flex items-center justify-center space-x-3 py-4 bg-gradient-to-r from-blue-600 to-teal-600 text-white rounded-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 transform hover:scale-105 mb-3"
-              >
-                <span>Register Now</span>
-                <ExternalLink className="w-5 h-5" />
-              </button>
-              <p className="text-sm text-gray-400">Secure your spot at Pakistan's premier tech festival</p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <ButtonWithTooltip
+              icon={ExternalLink}
+              tooltip="Check registration status"
+              onClick={handleRegisterNow}
+              variant="primary"
+            >
+              Register Now
+            </ButtonWithTooltip>
 
-            <div className="text-center">
-              <button
-                onClick={handleCommunityAgendaDownload}
-                className="w-full flex items-center justify-center space-x-3 py-4 border border-purple-500/50 text-purple-400 rounded-lg font-medium hover:bg-purple-500/10 backdrop-blur-sm transition-all duration-300 mb-3"
-              >
-                <Download className="w-5 h-5" />
-                <span>Community Agenda</span>
-              </button>
-              <p className="text-sm text-gray-400">Download the detailed community event schedule</p>
-            </div>
+            <ButtonWithTooltip
+              icon={BookOpen}
+              tooltip="View terms and conditions"
+              onClick={() => setIsJoinModalOpen(true)}
+              variant="secondary"
+            >
+              Terms & Conditions
+            </ButtonWithTooltip>
+
+            <ButtonWithTooltip
+              icon={Download}
+              tooltip="Download community event schedule"
+              onClick={handleCommunityAgendaDownload}
+              variant="tertiary"
+            >
+              Community Agenda
+            </ButtonWithTooltip>
           </div>
-        </div>
+        </motion.div>
 
         {/* Sponsorship Section */}
         <div className="bg-slate-800/30 backdrop-blur-md border border-teal-500/20 rounded-2xl p-8 mb-8">
@@ -163,6 +257,88 @@ const Agenda = () => {
             </div>
           </div>
         </div>
+
+        {/* Ambassadorship Program Section */}
+        <div className="bg-slate-800/30 backdrop-blur-md border border-orange-500/20 rounded-2xl p-8 mb-8">
+          <h3 className="text-xl font-bold text-white mb-6 text-center">Ambassadorship Program</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <ButtonWithTooltip
+              icon={Users}
+              tooltip="Opens application form in new tab"
+              onClick={handleAmbassadorshipApply}
+              variant="primary"
+            >
+              Apply for Ambassadorship
+            </ButtonWithTooltip>
+
+            <ButtonWithTooltip
+              icon={BookOpen}
+              tooltip="View terms and conditions"
+              onClick={() => setIsAmbassadorshipModalOpen(true)}
+              variant="secondary"
+            >
+              Terms & Conditions
+            </ButtonWithTooltip>
+
+            <ButtonWithTooltip
+              icon={Download}
+              tooltip="Check proposal availability"
+              onClick={handleAmbassadorshipDownload}
+              variant="tertiary"
+            >
+              Download Proposal
+            </ButtonWithTooltip>
+          </div>
+        </div>
+
+        {/* Modals */}
+        <Modal
+          isOpen={isJoinModalOpen}
+          onClose={() => setIsJoinModalOpen(false)}
+          title="Terms & Conditions - Join TechFest'25"
+        >
+          <p className="text-gray-300 leading-relaxed">{termsContent.join}</p>
+        </Modal>
+
+        <Modal
+          isOpen={isSponsorshipModalOpen}
+          onClose={() => setIsSponsorshipModalOpen(false)}
+          title="Terms & Conditions - Sponsorship"
+        >
+          <p className="text-gray-300 leading-relaxed">{termsContent.sponsorship}</p>
+        </Modal>
+
+        <Modal
+          isOpen={isSocietyModalOpen}
+          onClose={() => setIsSocietyModalOpen(false)}
+          title="Terms & Conditions - Society Registration"
+        >
+          <p className="text-gray-300 leading-relaxed">{termsContent.society}</p>
+        </Modal>
+
+        <Modal
+          isOpen={isAmbassadorshipModalOpen}
+          onClose={() => setIsAmbassadorshipModalOpen(false)}
+          title="Terms & Conditions - Ambassadorship Program"
+        >
+          <p className="text-gray-300 leading-relaxed">{termsContent.ambassadorship}</p>
+        </Modal>
+
+        <Modal
+          isOpen={isRegistrationModalOpen}
+          onClose={() => setIsRegistrationModalOpen(false)}
+          title="Registration"
+        >
+          <p className="text-gray-300 leading-relaxed">Registration will be live soon.</p>
+        </Modal>
+
+        <Modal
+          isOpen={isAmbassadorshipDownloadModalOpen}
+          onClose={() => setIsAmbassadorshipDownloadModalOpen(false)}
+          title="Ambassadorship Proposal"
+        >
+          <p className="text-gray-300 leading-relaxed">Ambassadorship proposal will be available soon.</p>
+        </Modal>
       </div>
     </div>
   );

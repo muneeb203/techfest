@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Menu, X, Calendar, Users, Image, Award, Mail, Phone, MapPin, Instagram, Linkedin, Github } from 'lucide-react';
+import { ChevronDown, Menu, X, Calendar, Users, Image, Award, Mail, Phone, MapPin, Instagram, Linkedin, Github, Sun, Moon } from 'lucide-react';
 import HomePage from './components/HomePage';
 import EventsPage from './components/EventsPage';
 import TeamPage from './components/TeamPage';
@@ -215,6 +215,15 @@ const App = () => {
           </div>
         </div>
       </footer>
+
+      {/* Theme Toggle Floating Button */}
+      <button
+        onClick={() => setIsDarkMode(!isDarkMode)}
+        className="fixed top-6 right-6 z-50 bg-gradient-to-r from-blue-500 to-teal-500 text-white font-semibold py-3 px-3 rounded-full shadow-[0_0_15px_rgba(14,165,233,0.7)] hover:shadow-[0_0_25px_rgba(14,165,233,1)] ring-2 ring-transparent hover:ring-teal-400 hover:scale-110 transition-all duration-500"
+        aria-label={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
+      >
+        {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+      </button>
 
       {/* Floating Sticky Button */}
       <button
