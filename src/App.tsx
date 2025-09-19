@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Menu, X, Calendar, Users, Image, Award, Mail, Phone, MapPin, Instagram, Linkedin, Github, Sun, Moon } from 'lucide-react';
+import { ChevronDown, Menu, X, Calendar, Users, Image, Award, Mail, Phone, MapPin, Instagram, Linkedin, Github } from 'lucide-react';
 import HomePage from './components/HomePage';
 import EventsPage from './components/EventsPage';
 import TeamPage from './components/TeamPage';
@@ -11,7 +11,7 @@ import Agenda from './components/Agenda';
 const App = () => {
   const [currentPage, setCurrentPage] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(true);
+
   const calculateTimeLeft = () => {
     const targetDate = new Date('2025-10-11T00:00:00');
     const now = new Date();
@@ -65,9 +65,9 @@ const App = () => {
   };
 
   return (
-    <div className={`min-h-screen transition-all duration-300 ${isDarkMode ? 'dark bg-gradient-to-br from-black to-blue-900' : 'bg-gradient-to-br from-blue-50 via-cyan-50 to-teal-50'}`}>
+    <div className={`min-h-screen transition-all duration-300 dark bg-gradient-to-br from-black to-blue-900`}>
       {/* Header */}
-      <header className={`fixed top-0 w-full z-50 backdrop-blur-md border-b transition-all duration-300 ${isDarkMode ? 'bg-slate-900/80 border-blue-800/50' : 'bg-white/80 border-blue-200/50'}`}>
+      <header className="fixed top-0 w-full z-50 backdrop-blur-md border-b transition-all duration-300 bg-slate-900/80 border-blue-800/50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -77,7 +77,7 @@ const App = () => {
                 <h1 className={`text-xl font-bold bg-gradient-to-r from-blue-400 to-teal-400 bg-clip-text text-transparent`}>
                   TechFest
                 </h1>
-                <p className={`text-xs ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>Pakistan</p>
+                <p className="text-xs text-gray-400">Pakistan</p>
               </div>
             </div>
 
@@ -89,8 +89,8 @@ const App = () => {
                   onClick={() => setCurrentPage(item.id)}
                   className={`relative px-3 py-2 rounded-lg transition-all duration-300 ${
                     currentPage === item.id
-                      ? `${isDarkMode ? 'text-blue-400' : 'text-blue-600'} bg-gradient-to-r from-blue-500/10 to-teal-500/10`
-                      : `${isDarkMode ? 'text-gray-300 hover:text-blue-400' : 'text-gray-700 hover:text-blue-600'} hover:bg-blue-500/5`
+                      ? 'text-blue-400 bg-gradient-to-r from-blue-500/10 to-teal-500/10'
+                      : 'text-gray-300 hover:text-blue-400 hover:bg-blue-500/5'
                   }`}
                 >
                   {item.label}
@@ -105,7 +105,7 @@ const App = () => {
             <div className="flex items-center">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className={`md:hidden p-2 rounded-lg transition-all duration-300 ${isDarkMode ? 'bg-slate-800 text-white hover:bg-slate-700' : 'bg-white text-slate-700 hover:bg-gray-100'}`}
+                className="md:hidden p-2 rounded-lg transition-all duration-300 bg-slate-800 text-white hover:bg-slate-700"
               >
                 {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -114,7 +114,7 @@ const App = () => {
 
           {/* Mobile Navigation */}
           {isMenuOpen && (
-            <div className={`md:hidden mt-4 p-4 rounded-lg ${isDarkMode ? 'bg-slate-800/90' : 'bg-white/90'} backdrop-blur-md`}>
+            <div className="md:hidden mt-4 p-4 rounded-lg bg-slate-800/90 backdrop-blur-md">
               {navigationItems.map((item) => (
                 <button
                   key={item.id}
@@ -124,8 +124,8 @@ const App = () => {
                   }}
                   className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
                     currentPage === item.id
-                      ? `${isDarkMode ? 'text-blue-400 bg-blue-500/10' : 'text-blue-600 bg-blue-500/10'}`
-                      : `${isDarkMode ? 'text-gray-300 hover:text-blue-400 hover:bg-blue-500/5' : 'text-gray-700 hover:text-blue-600 hover:bg-blue-500/5'}`
+                      ? 'text-blue-400 bg-blue-500/10'
+                      : 'text-gray-300 hover:text-blue-400 hover:bg-blue-500/5'
                   }`}
                 >
                   {item.icon && <item.icon className="w-5 h-5" />}
@@ -143,27 +143,27 @@ const App = () => {
       </main>
 
       {/* Footer */}
-      <footer className={`mt-20 border-t ${isDarkMode ? 'bg-slate-900/50 border-blue-800/50' : 'bg-white/50 border-blue-200/50'} backdrop-blur-md`}>
+      <footer className="mt-20 border-t bg-slate-900/50 border-blue-800/50 backdrop-blur-md">
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-3">
                 <img src="/images/logo_bgremove.png" alt="TechFest Logo" className="w-16  h-16 object-contain rounded-lg" />
-                <span className={`text-lg font-bold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>TechFest Pakistan</span>
+                <span className="text-lg font-bold text-white">TechFest Pakistan</span>
               </div>
-              <p className={`text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+              <p className="text-sm text-gray-400">
                 Premier tech event bringing together innovators, developers, and tech enthusiasts across Pakistan.
               </p>
             </div>
 
             <div className="space-y-4">
-              <h3 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Quick Links</h3>
+              <h3 className="font-semibold text-white">Quick Links</h3>
               <div className="space-y-2">
                 {navigationItems.slice(0, 4).map((item) => (
                   <button
                     key={item.id}
                     onClick={() => setCurrentPage(item.id)}
-                    className={`block text-sm transition-colors ${isDarkMode ? 'text-gray-400 hover:text-blue-400' : 'text-gray-600 hover:text-blue-600'}`}
+                    className="block text-sm transition-colors text-gray-400 hover:text-blue-400"
                   >
                     {item.label}
                   </button>
@@ -172,17 +172,17 @@ const App = () => {
             </div>
 
             <div className="space-y-4">
-              <h3 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Contact Info</h3>
+              <h3 className="font-semibold text-white">Contact Info</h3>
               <div className="space-y-3">
-                <div className={`flex items-center space-x-3 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                <div className="flex items-center space-x-3 text-sm text-gray-400">
                   <Mail className="w-4 h-4" />
                   <span>info@techfestpk.com</span>
                 </div>
-                <div className={`flex items-center space-x-3 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                <div className="flex items-center space-x-3 text-sm text-gray-400">
                   <Phone className="w-4 h-4" />
                   <span>+92 330 0078040</span>
                 </div>
-                <div className={`flex items-center space-x-3 text-sm ${isDarkMode ? 'text-gray-400' : 'text-gray-600'}`}>
+                <div className="flex items-center space-x-3 text-sm text-gray-400">
                   <MapPin className="w-4 h-4" />
                   <span>Islamabad, Pakistan</span>
                 </div>
@@ -190,7 +190,7 @@ const App = () => {
             </div>
 
             <div className="space-y-4">
-              <h3 className={`font-semibold ${isDarkMode ? 'text-white' : 'text-gray-800'}`}>Follow Us</h3>
+              <h3 className="font-semibold text-white">Follow Us</h3>
               <div className="flex space-x-3">
                 {[
                   { icon: Instagram, href: 'https://www.instagram.com/techfest.official/', color: 'from-pink-500 to-purple-500' },
@@ -209,14 +209,14 @@ const App = () => {
             </div>
           </div>
 
-          <div className={`mt-8 pt-8 border-t text-center text-sm ${isDarkMode ? 'border-blue-800/50 text-gray-400' : 'border-blue-200/50 text-gray-600'}`}>
+          <div className="mt-8 pt-8 border-t text-center text-sm border-blue-800/50 text-gray-400">
             <p>&copy; 2025 TechFest Pakistan. All rights reserved.</p>
             <p>Developed by <a href="https://convosol.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors">ConvoSol</a>.</p>
           </div>
         </div>
       </footer>
 
-      {/* Theme Toggle Floating Button */}
+      {/* Theme Toggle Floating Button
       <button
         onClick={() => setIsDarkMode(!isDarkMode)}
         className="fixed top-6 right-6 z-50 bg-gradient-to-r from-blue-500 to-teal-500 text-white font-semibold py-3 px-3 rounded-full shadow-[0_0_15px_rgba(14,165,233,0.7)] hover:shadow-[0_0_25px_rgba(14,165,233,1)] ring-2 ring-transparent hover:ring-teal-400 hover:scale-110 transition-all duration-500"
@@ -224,6 +224,7 @@ const App = () => {
       >
         {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
       </button>
+      */}
 
       {/* Floating Sticky Button */}
       <button
