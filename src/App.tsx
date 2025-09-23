@@ -13,7 +13,7 @@ const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const calculateTimeLeft = () => {
-    const targetDate = new Date('2025-10-11T00:00:00');
+    const targetDate = new Date('2025-11-15T00:00:00');
     const now = new Date();
     const difference = targetDate.getTime() - now.getTime();
 

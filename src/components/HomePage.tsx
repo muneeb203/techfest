@@ -39,7 +39,7 @@ const HomePage: React.FC<HomePageProps> = ({ timeLeft, setCurrentPage }) => {
   const upcomingEvents = [
     {
       title: 'TechFest\'25 Peshawar Chapter',
-      date: 'October 11, 2025',
+      date: 'November 15, 2025',
       location: 'University of Peshawar',
       status: 'Registration Open'
     }
