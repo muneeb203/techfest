@@ -10,7 +10,7 @@ const Agenda = () => {
   const [isSponsorshipModalOpen, setIsSponsorshipModalOpen] = useState(false);
   const [isSocietyModalOpen, setIsSocietyModalOpen] = useState(false);
   const [isAmbassadorshipModalOpen, setIsAmbassadorshipModalOpen] = useState(false);
-  const [isRegistrationModalOpen, setIsRegistrationModalOpen] = useState(false);
+
   const [isAmbassadorshipDownloadModalOpen, setIsAmbassadorshipDownloadModalOpen] = useState(false);
 
   const termsContent = {
@@ -66,7 +66,7 @@ const Agenda = () => {
   };
 
   const handleRegisterNow = () => {
-    setIsRegistrationModalOpen(true);
+    window.open('https://forms.gle/5HsRYsY3LMhumKbo8', '_blank');
   };
 
   const handleSponsorshipPackageDownload = () => {
@@ -174,7 +174,7 @@ const Agenda = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <ButtonWithTooltip
               icon={ExternalLink}
-              tooltip="Check registration status"
+              tooltip="Open registration form"
               onClick={handleRegisterNow}
               variant="primary"
             >
@@ -324,13 +324,7 @@ const Agenda = () => {
           <p className="text-gray-300 leading-relaxed">{termsContent.ambassadorship}</p>
         </Modal>
 
-        <Modal
-          isOpen={isRegistrationModalOpen}
-          onClose={() => setIsRegistrationModalOpen(false)}
-          title="Registration"
-        >
-          <p className="text-gray-300 leading-relaxed">Registration will be live soon.</p>
-        </Modal>
+
 
         <Modal
           isOpen={isAmbassadorshipDownloadModalOpen}
