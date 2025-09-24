@@ -107,7 +107,7 @@ const Agenda = () => {
     <div className="min-h-screen px-4 py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 animate-gradient-x">
       <Helmet>
         <title>TechFest Pakistan - Agenda</title>
-        <meta name="description" content="Check out the TechFest Pakistan agenda for TechFest'25 Peshawar Chapter. View event schedule, venue details, registration information, and sponsorship opportunities for October 11, 2025." />
+        <meta name="description" content="Check out the TechFest Pakistan agenda for TechFest'25 Peshawar Chapter. View event schedule, venue details, registration information, and sponsorship opportunities for November 15, 2025." />
         <meta name="keywords" content="TechFest, agenda, schedule, event details, venue, registration, sponsorship, Peshawar, Pakistan, technology festival" />
       </Helmet>
       <div className="container mx-auto max-w-4xl">
@@ -129,7 +129,7 @@ const Agenda = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="text-center">
               <Calendar className="w-8 h-8 text-blue-400 mx-auto mb-2" />
-              <p className="text-white font-medium">11th October 2025</p>
+              <p className="text-white font-medium">15th November 2025</p>
             </div>
             <div className="text-center">
               <Users className="w-8 h-8 text-blue-400 mx-auto mb-2" />

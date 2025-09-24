@@ -10,7 +10,7 @@ const EventsPage = ({ setCurrentPage }: { setCurrentPage: (page: string) => void
     {
       id: 1,
       title: 'TechFest\'25 Peshawar Chapter',
-      date: '11th October 2025',
+      date: '15th November 2025',
       location: 'University of Peshawar',
       time: '9:00 AM - 6:00 PM',
       participants: '',
