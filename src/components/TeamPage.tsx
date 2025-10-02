@@ -43,7 +43,7 @@ const TeamPage = () => {
       }
     },
   
-    },
+  
     {
       id: 5,
       name: 'Sardar Burhan',
