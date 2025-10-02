@@ -43,18 +43,6 @@ const TeamPage = () => {
       }
     },
     {
-      id: 4,
-      name: 'Syed Fawad Raza Kazmi',
-      role: 'Core Member',
-      category: 'core',
-      image: '/images/fawad.jpg',
-      bio: 'Event management expert with creative flair',
-      social: {
-        linkedin: '#',
-        instagram: '#'
-      }
-    },
-    {
       id: 5,
       name: 'Sardar Burhan',
       role: 'Lead Peshawar Chapter',
