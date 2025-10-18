@@ -71,7 +71,7 @@ const Agenda = () => {
 
   const handleSponsorshipPackageDownload = () => {
     const link = document.createElement('a');
-    link.href = '/images/Techfest%20Sponsorship%20Proposal%20.pdf';
+    link.href = 'public\\Techfest Sponsorship Proposal.pdf';
     link.download = 'Techfest Sponsorship Proposal.pdf';
     document.body.appendChild(link);
     link.click();
